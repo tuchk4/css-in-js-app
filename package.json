@@ -1,8 +1,8 @@
 {
-  "name": "css-in-jss-app",
+  "name": "css-in-js-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tuchk4.github.io/css-in-jss-app",
+  "homepage": "https://tuchk4.github.io/css-in-js-app",
   "dependencies": {
     "aphrodite": "^1.2.0",
     "classnames": "^2.2.5",
