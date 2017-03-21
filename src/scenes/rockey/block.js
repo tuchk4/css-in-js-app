@@ -23,8 +23,8 @@ export default rockey(Block)`
   }
 
   ${function prettyBackground(props) {
-    return `
+  return `
       background-color: ${props.isPrimary ? colors[props.i][1] : colors[props.i][0]};
-    `
-  }}
+    `;
+}}
 `;

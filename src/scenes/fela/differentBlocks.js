@@ -1,20 +1,22 @@
 import { createComponent } from 'react-fela';
 
 import config from '../../config';
-import Block  from './block';
+import Block from './block';
 
 const components = [];
 
 for (let i = 0; i < config.size; i++) {
-  let size = Math.round(( (i / 10) % 1) *10 );
+  let size = Math.round(i / 10 % 1 * 10);
 
-  const component = createComponent(props => ({
-    border: `${size + 2}px solid #000`,
-    borderRadius: `${size * 6}px`
-  }), Block);
+  const component = createComponent(
+    props => ({
+      border: `${size + 2}px solid #000`,
+      borderRadius: `${size * 6}px`,
+    }),
+    Block
+  );
 
   components.push(component);
 }
-
 
 export default components;

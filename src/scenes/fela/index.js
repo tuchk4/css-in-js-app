@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { createRenderer } from 'fela'
-import { Provider } from 'react-fela'
+import { createRenderer } from 'fela';
+import { Provider } from 'react-fela';
 
 import Page from '../../components/page';
 
-import block from './block'
-import differentBlocks from './differentBlocks'
-
+import block from './block';
+import differentBlocks from './differentBlocks';
 
 let renderer = null;
 
@@ -26,9 +25,10 @@ const Fela = () => {
         title="Fela"
         link="rofrischmann/fela"
         component={block}
-        components={differentBlocks}/>
+        components={differentBlocks}
+      />
     </Provider>
-  )
+  );
 };
 
 export default Fela;

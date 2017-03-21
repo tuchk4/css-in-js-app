@@ -8,7 +8,7 @@ class Perfomance extends React.Component {
   }
 
   componentDidMount() {
-    this.props.onDidMount(`${(Date.now() - this.time)/1000}sec`);
+    this.props.onDidMount(`${(Date.now() - this.time) / 1000}sec`);
   }
 
   render() {
@@ -23,8 +23,7 @@ class Perfomance extends React.Component {
       for (let i = 0; i < total; i++) {
         components.push(<Component i={i} key={i} {...props} />);
       }
-
-    } else if (this.props.type  === 'DIFFERENT_COMOPNENTS') {
+    } else if (this.props.type === 'DIFFERENT_COMOPNENTS') {
       components = this.props.components.map((Component, i) => {
         return <Component i={i} key={i} {...props} />;
       });

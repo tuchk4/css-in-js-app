@@ -14,24 +14,21 @@ const styles = {
     transition: 'background-color .5s, color 1s',
     ':hover': {
       backgroundColor: 'black !important',
-      color: 'white'
-    }
+      color: 'white',
+    },
   },
-  primary: {
-
-  }
+  primary: {},
 };
-
 
 for (let i = 0; i < colors.length; i++) {
   styles[`button${i}`] = {
-    backgroundColor: colors[i][0]
+    backgroundColor: colors[i][0],
   };
 
   styles[`primaryButton${i}`] = {
-    backgroundColor: colors[i][1]
+    backgroundColor: colors[i][1],
   };
-};
+}
 
 const sheet = StyleSheet.create(styles);
 

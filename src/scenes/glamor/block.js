@@ -13,34 +13,41 @@ const buttonRule = css({
   transition: 'background-color .5s, color 1s',
   '&:hover': {
     backgroundColor: 'black !important',
-    color: 'white'
-  }
+    color: 'white',
+  },
 });
 
-const primaryRule = css({
-
-});
+const primaryRule = css({});
 
 const rules = {
   button: [],
-  primaryButton: []
+  primaryButton: [],
 };
 
 for (let i = 0; i < colors.length; i++) {
-  rules.button.push(css({
-    backgroundColor: colors[i][0]
-  }));
+  rules.button.push(
+    css({
+      backgroundColor: colors[i][0],
+    })
+  );
 
-  rules.primaryButton.push(css({
-    backgroundColor: colors[i][1]
-  }));
-};
+  rules.primaryButton.push(
+    css({
+      backgroundColor: colors[i][1],
+    })
+  );
+}
 
 const Block = ({ i, isPrimary, className, classes, children }) => {
-  const classList = classnames(className, buttonRule.toString(), rules.button[i].toString(), {
-    [primaryRule]: isPrimary,
-    [rules.primaryButton[i]]: isPrimary,
-  });
+  const classList = classnames(
+    className,
+    buttonRule.toString(),
+    rules.button[i].toString(),
+    {
+      [primaryRule]: isPrimary,
+      [rules.primaryButton[i]]: isPrimary,
+    }
+  );
 
   return <div className={classList}>{children}</div>;
 };

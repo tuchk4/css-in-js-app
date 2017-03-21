@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import Perfomance from './perfomance';
 
@@ -7,10 +7,10 @@ class Page extends React.Component {
   state = {
     type: null,
     time: null,
-    props : {
+    props: {
       children: 'Yo',
-      isPrimary: false
-    }
+      isPrimary: false,
+    },
   };
 
   input = null;
@@ -31,13 +31,13 @@ class Page extends React.Component {
   onClear = () => {
     this.setState({
       type: null,
-      time: null
+      time: null,
     });
   };
 
-  onPerfomanceDidMount = (time) => {
+  onPerfomanceDidMount = time => {
     this.setState({
-      time
+      time,
     });
   };
 
@@ -45,10 +45,10 @@ class Page extends React.Component {
     this.setState({
       props: {
         ...this.state.props,
-        [field]: value
-      }
-    })
-  }
+        [field]: value,
+      },
+    });
+  };
 
   render() {
     const getLinkClassName = title =>
@@ -58,8 +58,8 @@ class Page extends React.Component {
       <div className="App">
         <div className="App-header">
           <Link className={getLinkClassName('Rockey')} to="/Rockey">
-          Rockey
-        </Link>
+            Rockey
+          </Link>
           <Link className={getLinkClassName('Aphrodite')} to="/Aphrodite">
             Aphrodite
           </Link>
@@ -74,7 +74,13 @@ class Page extends React.Component {
           </Link>
 
           {this.props.link
-            ? <a className="Right"  target="blank" href={`https://github.com/${this.props.link}`}>gh: {this.props.link}</a>
+            ? <a
+                className="Right"
+                target="blank"
+                href={`https://github.com/${this.props.link}`}
+              >
+                gh: {this.props.link}
+              </a>
             : null}
         </div>
         <div className="App-header App-buttons">
@@ -128,16 +134,15 @@ class Page extends React.Component {
         </div>
 
         <div>
-          {  this.state.type ?  (
-            <Perfomance
-              type={this.state.type}
-              component={this.props.component}
-              components={this.props.components}
-
-              onDidMount={this.onPerfomanceDidMount}
-              props={this.state.props}
-            />
-          ) : null }
+          {this.state.type
+            ? <Perfomance
+                type={this.state.type}
+                component={this.props.component}
+                components={this.props.components}
+                onDidMount={this.onPerfomanceDidMount}
+                props={this.state.props}
+              />
+            : null}
         </div>
       </div>
     );
