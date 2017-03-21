@@ -15,8 +15,7 @@ export default rockey(Block)`
   padding: 15px;
   border: 0;
   font-weight: bold;
-  transition: background-color .5s;
-  transition: color 1s;
+  transition: background-color .5s, color 1s;
 
   :hover {
     background-color: black !important;

@@ -16,11 +16,7 @@ export default createComponent(props => ({
   border: '0',
   fontWeight: 'bold',
   backgroundColor: props.isPrimary ? colors[props.i][1] : colors[props.i][0],
-  transition: [
-    'background-color .5s',
-    'color 1s'
-  ],
-
+  transition: 'background-color .5s, color 1s',
   '&:hover': {
     backgroundColor: 'black',
     color: 'white',

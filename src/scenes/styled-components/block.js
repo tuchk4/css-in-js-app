@@ -16,8 +16,7 @@ export default styled(Block)`
   border: 0;
   font-weight: bold;
   background-color: ${props => props.isPrimary ? colors[props.i][1] : colors[props.i][0]};
-  transition: background-color .5s;
-  transition: color 1s;
+  transition: background-color .5s, color 1s;  
 
   &:hover {
     background-color: black;

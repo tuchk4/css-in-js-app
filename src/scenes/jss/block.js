@@ -11,11 +11,7 @@ const styles = {
     padding: '15px',
     border: '0',
     fontWeight: 'bold',
-
-    transition: [
-      'background-color .5s',
-      'color 1s',
-    ],
+    transition: 'background-color .5s, color 1s',
     '&:hover': {
       backgroundColor: 'black !important',
       color: 'white'
@@ -27,8 +23,13 @@ const styles = {
 };
 
 for (let i = 0; i < colors.length; i++) {
-  styles[`button${i}`] = colors[i][0];
-  styles[`primaryButton${i}`] = colors[i][1];
+  styles[`button${i}`] = {
+    backgroundColor: colors[i][0]
+  };
+  
+  styles[`primaryButton${i}`] = {
+    backgroundColor: colors[i][1]
+  };
 };
 
 const Block = ({ i, isPrimary, className, classes, children }) => {

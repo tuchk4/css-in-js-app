@@ -11,11 +11,7 @@ const styles = {
     padding: '15px',
     border: '0',
     fontWeight: 'bold',
-
-    transition: [
-      'background-color .5s',
-      'color 1s',
-    ],
+    transition: 'background-color .5s, color 1s',
     ':hover': {
       backgroundColor: 'black !important',
       color: 'white'
