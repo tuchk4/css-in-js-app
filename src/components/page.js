@@ -84,29 +84,46 @@ class Page extends React.Component {
             : null}
         </div>
         <div className="App-header App-buttons">
-          <button
-            disabled={this.state.type}
-            onClick={this.onRenderSameComponents}
-            className="Button"
-          >
-            Render 1000 same components
-          </button>
-          <button
-            disabled={this.state.type}
-            onClick={this.onRenderDifferentComponents}
-            className="Button"
-          >
-            Render 1000 differnet components
-          </button>
-          <button
-            disabled={!this.state.type}
-            onClick={this.onClear}
-            className="Button"
-          >
-            Clear
-          </button>
+          <div className="ButtonBlock">
+            <button
+              disabled={this.state.type}
+              onClick={this.onRenderSameComponents}
+              className="Button"
+            >
+              Render 1000 same components
+            </button>
+            <a target="blank"
+              href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title.toLowerCase()}/block.js`}>
+              Component source
+            </a>
+          </div>
 
-          <div className="App-buttons">
+          <div className="ButtonBlock">
+            <button
+              disabled={this.state.type}
+              onClick={this.onRenderDifferentComponents}
+              className="Button"
+            >
+              Render 1000 differnet components
+            </button>
+
+            <a target="blank"
+              href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title.toLowerCase()}/differentBlocks.js`}>
+              Components source
+            </a>
+          </div>
+
+          <div className="ButtonBlock">
+            <button
+              disabled={!this.state.type}
+              onClick={this.onClear}
+              className="Button"
+            >
+              Clear
+            </button>
+          </div>
+
+          <div className="App-buttons App-buttons-primary">
             <div className="PropsBlock">
               <input
                 className="Checkbox"

@@ -6,7 +6,8 @@ import colors from '../../utils/colors';
 const buttonRule = css({
   minWidth: '16px',
   height: '16px',
-  display: 'inline-block',
+  float: 'left',
+  textAlign: 'center',
   padding: '15px',
   border: '0',
   fontWeight: 'bold',

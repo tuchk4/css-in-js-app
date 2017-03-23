@@ -1,62 +1,47 @@
 import React from 'react';
 import Page from '../../components/page';
 
-
-import rockey from 'rockey-react';
-import look from 'rockey-react/look';
-
-import block from './block';
-import differentBlocks from './differentBlocks';
-
-const Rockey = () => {
-  return (
-    <Page
-      title="Rockey"
-      link="tuchk4/rockey"
-      component={block}
-      components={differentBlocks}
-    />
-  );
-};
-
-
-const { Layer, PrimaryLayer } = look.div`
-  Layer {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #cc0000;
+class Rockey extends React.Component {
+  state = {
+    block: null,
+    differentBlocks: null,
   }
 
-  PrimaryLayer {
-    background: rgba(0,0,255,.1);
-    border-width: 5px;
+  componentDidMount() {
+    require.ensure(['./block', './differentBlocks'], () => {
+      const block = require('./block').default;
+      const differentBlocks = require('./differentBlocks').default;
 
-    Button {
-      font-size: 20px;
+      this.setState({ block, differentBlocks });
+    });
+  }
+
+  render() {
+    if (!this.state.block || !this.state.differentBlocks) {
+      return (
+        <div>
+          <p>
+            Loading...
+          </p>
+          <p>
+            This is not an assynchronous bundle downloading. But this is component module initialization.
+          </p>
+          <p>
+            Maybe genereting css classNames that will be used when rendering.
+          </p>
+        </div>
+      );
     }
+
+    return (
+      <Page
+        title="Rockey"
+        link="tuchk4/rockey"
+        component={this.state.block}
+        components={this.state.differentBlocks}
+      />
+    );
   }
-`;
-
-const Button = rockey.button('Button')`
-  font-weight: bold;
-  margin: 5px;
-`;
-const MyButton = Button('MyButton')`
-  color: blue;
-`;
-
-export default () => {
-  return (
-    <div>
-      <Layer>
-        <Button>Button</Button>
-        <MyButton>MyButton</MyButton>
-      </Layer>
-
-      <PrimaryLayer>
-        <Button>Button</Button>
-        <MyButton>MyButton</MyButton>
-      </PrimaryLayer>
-    </div>
-  )
 };
+
+export default Rockey;

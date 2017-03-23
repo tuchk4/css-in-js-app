@@ -31,10 +31,11 @@ body {
 }
 
 .App {
-  text-align: center;
+  min-width: 660px;
 }
 
 .App-header {
+  text-align: center;
   width: 100%;
   overflow: hidden;
   background: #000;
@@ -48,6 +49,10 @@ body {
   background: #222;
 }
 
+.App-buttons-primary {
+  background-color: #212;
+}
+
 .App-header a {
   float: left;
   background-color: inherit;
@@ -58,7 +63,7 @@ body {
   display: block;
   white-space: normal;
   padding: 12px 24px;
-  height: 47px;
+  height: 20px;
   user-select: none;
   vertical-align: middle;
   overflow: hidden;
@@ -77,8 +82,6 @@ body {
   background-color: #ccc!important;
 }
 
-
-
 .App-intro {
   font-size: large;
 }
@@ -87,7 +90,7 @@ body {
   outline: none;
   border: none;
   border-bottom: 2px solid #fff;
-  background: #222;
+  background: #212;
   font-size: 15px;
   font-weight: bold;
   color: white;
@@ -140,7 +143,7 @@ body {
   float: right !important;
   font-weight: bold;
   color: #00ff00 !important;
-  font-size: 35px;
+  font-size: 25px;
   padding: 0;
   font-family: monospace;
 }
@@ -152,4 +155,23 @@ body {
   color: #ffcc33;
   font-size: 35px;
   font-weight: bold;
+}
+
+.ButtonBlock {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.ButtonBlock a {
+  float: none;
+  display: block;
+  margin: 5px auto;
+  height: auto;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: underline;
+}
+
+.ButtonBlock a  {
+  background: none;
 }

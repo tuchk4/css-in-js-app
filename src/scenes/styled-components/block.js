@@ -11,12 +11,13 @@ Block.displayName = 'Block';
 export default styled(Block)`
   min-width: 16px;
   height: 16px;
-  display: inline-block;
+  float: left;
+  text-align: center;
   padding: 15px;
   border: 0;
   font-weight: bold;
   background-color: ${props => props.isPrimary ? colors[props.i][1] : colors[props.i][0]};
-  transition: background-color .5s, color 1s;  
+  transition: background-color .5s, color 1s;
 
   &:hover {
     background-color: black;

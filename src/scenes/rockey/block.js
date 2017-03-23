@@ -11,7 +11,8 @@ Block.displayName = 'Block';
 export default rockey(Block)`
   min-width: 16px;
   height: 16px;
-  display: inline-block;
+  float: left;
+  text-align: center;
   padding: 15px;
   border: 0;
   font-weight: bold;

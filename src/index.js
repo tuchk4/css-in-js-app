@@ -17,9 +17,9 @@ ReactDOM.render(
     <div>
       <Route exact path="/" component={Rockey} />
       <Route path="/Rockey" component={Rockey} />
+      <Route path="/Glamor" component={Glamor} />
       <Route path="/Aphrodite" component={Aphrodite} />
       <Route path="/JSS" component={JSS} />
-      <Route path="/Glamor" component={Glamor} />
       <Route path="/Fela" component={Fela} />
       <Route path="/styled-components" component={StyledComponents} />
     </div>

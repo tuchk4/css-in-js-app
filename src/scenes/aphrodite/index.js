@@ -1,18 +1,47 @@
 import React from 'react';
 import Page from '../../components/page';
 
-import block from './block';
-import differentBlocks from './differentBlocks';
+class Aphrodite extends React.Component {
+  state = {
+    block: null,
+    differentBlocks: null,
+  }
 
-const Aphrodite = () => {
-  return (
-    <Page
-      title="Aphrodite"
-      link="Khan/aphrodite"
-      component={block}
-      components={differentBlocks}
-    />
-  );
+  componentDidMount() {
+    require.ensure(['./block', './differentBlocks'], () => {
+      const block = require('./block').default;
+      const differentBlocks = require('./differentBlocks').default;
+
+      this.setState({ block, differentBlocks });
+    });
+  }
+
+  render() {
+    if (!this.state.block || !this.state.differentBlocks) {
+      return (
+        <div>
+          <p>
+            Loading...
+          </p>
+          <p>
+            This is not an assynchronous bundle downloading. But this is component module initialization.
+          </p>
+          <p>
+            Maybe genereting css classNames that will be used when rendering.
+          </p>
+        </div>
+      );
+    }
+
+    return (
+      <Page
+        title="Aphrodite"
+        link="Khan/aphrodite"
+        component={this.state.block}
+        components={this.state.differentBlocks}
+      />
+    );
+  }
 };
 
 export default Aphrodite;

@@ -10,6 +10,8 @@ for (let i = 0; i < config.size; i++) {
 
   const styles = {
     sizedButton: {
+      float: 'none',
+      display: 'inline-block',
       border: `${size + 2}px solid #000`,
       borderRadius: `${size * 6}px`,
     },
