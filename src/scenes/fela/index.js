@@ -33,13 +33,10 @@ class Fela extends React.Component {
       return (
         <div>
           <p>
-            Loading...
+            Loading Fela bundle...
           </p>
           <p>
-            This is not an assynchronous bundle downloading. But this is component module initialization.
-          </p>
-          <p>
-            Genereting css classNames that will be used when rendering.
+            Assynchronous bundle downloading and its initialization.
           </p>
         </div>
       );

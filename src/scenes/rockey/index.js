@@ -21,13 +21,10 @@ class Rockey extends React.Component {
       return (
         <div>
           <p>
-            Loading...
+            Loading Rockey bundle...
           </p>
           <p>
-            This is not an assynchronous bundle downloading. But this is component module initialization.
-          </p>
-          <p>
-            Maybe genereting css classNames that will be used when rendering.
+            Assynchronous bundle downloading and its initialization.
           </p>
         </div>
       );
