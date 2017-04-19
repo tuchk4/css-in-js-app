@@ -175,3 +175,15 @@ body {
 .ButtonBlock a  {
   background: none;
 }
+
+.RepoLink {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.RepoLink a {
+  color: #000;
+  font-size: 25px;
+  padding: 0;
+  font-family: monospace;
+}

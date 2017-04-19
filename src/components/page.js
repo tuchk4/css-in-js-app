@@ -151,7 +151,8 @@ class Page extends React.Component {
         </div>
 
         <div>
-          {this.state.type
+          {
+            this.state.type
             ? <Perfomance
                 type={this.state.type}
                 component={this.props.component}
@@ -159,7 +160,12 @@ class Page extends React.Component {
                 onDidMount={this.onPerfomanceDidMount}
                 props={this.state.props}
               />
-            : null}
+            : <div className="RepoLink">
+                <a href="https://github.com/tuchk4/css-in-js-app" target="blank">
+                  https://github.com/tuchk4/css-in-js-app
+                </a>
+              </div>
+          }
         </div>
       </div>
     );
