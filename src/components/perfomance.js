@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import now from 'performance-now';
 import config from '../config';
 
-class Perfomance extends React.Component {
+
+class Perfomance extends Component {
+
   constructor(props) {
     super(props);
-    this.time = Date.now();
+    this.createdAt = now();
   }
 
   componentDidMount() {
-    this.props.onDidMount(`${(Date.now() - this.time) / 1000}sec`);
+    const ms = (now() - this.createdAt).toFixed(0);
+    this.props.onDidMount(`${ms} ms`);
   }
 
   render() {
