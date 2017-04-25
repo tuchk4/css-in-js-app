@@ -4,8 +4,8 @@ import Page from '../../components/Page';
 export default () => {
   return (
     <Page
-      title="Aphrodite"
-      github="Khan/aphrodite"
+      title="styled-components"
+      github="styled-components/styled-components"
       load={onLoad => {
         require.ensure(['./Block', './DifferentBlocks'], () => {
           const block = require('./Block').default;

@@ -6,14 +6,20 @@ import config from '../config';
 // window.Perf = Perf;
 
 class Perfomance extends Component {
+  state = {
+    time: null,
+  };
+
   constructor(props) {
     super(props);
     this.createdAt = now();
   }
 
   componentDidMount() {
-    const ms = (now() - this.createdAt).toFixed(0);
-    this.props.onDidMount(`${ms} ms`);
+    this.setState({
+      time: (now() - this.createdAt).toFixed(0),
+    });
+    // this.props.onDidMount(`${ms} ms`);
 
     // Perf.stop();
     //
@@ -47,7 +53,16 @@ class Perfomance extends Component {
       return 'Ooops';
     }
 
-    return <div>{components}</div>;
+    return (
+      <div>
+        {this.state.time &&
+          <p className="time">
+            {this.state.time} ms
+          </p>}
+
+        {components}
+      </div>
+    );
   }
 }
 

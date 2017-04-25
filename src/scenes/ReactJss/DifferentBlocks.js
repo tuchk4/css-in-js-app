@@ -1,7 +1,7 @@
 import React from 'react';
 import config from '../../config';
 import injectSheet from 'react-jss';
-import Block from './block';
+import Block from './Block';
 
 const components = [];
 

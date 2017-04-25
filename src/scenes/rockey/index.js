@@ -1,44 +1,19 @@
 import React from 'react';
-import Page from '../../components/page';
+import Page from '../../components/Page';
 
-class Rockey extends React.Component {
-  state = {
-    block: null,
-    differentBlocks: null,
-  };
+export default () => {
+  return (
+    <Page
+      title="Rockey"
+      github="tuchk4/rockey"
+      load={onLoad => {
+        require.ensure(['./Block', './DifferentBlocks'], () => {
+          const block = require('./Block').default;
+          const differentBlocks = require('./DifferentBlocks').default;
 
-  componentDidMount() {
-    require.ensure(['./block', './differentBlocks'], () => {
-      const block = require('./block').default;
-      const differentBlocks = require('./differentBlocks').default;
-
-      this.setState({ block, differentBlocks });
-    });
-  }
-
-  render() {
-    if (!this.state.block || !this.state.differentBlocks) {
-      return (
-        <div>
-          <p>
-            Loading Rockey bundle...
-          </p>
-          <p>
-            Assynchronous bundle downloading and its initialization.
-          </p>
-        </div>
-      );
-    }
-
-    return (
-      <Page
-        title="Rockey"
-        link="tuchk4/rockey"
-        component={this.state.block}
-        components={this.state.differentBlocks}
-      />
-    );
-  }
-}
-
-export default Rockey;
+          onLoad({ block, differentBlocks });
+        });
+      }}
+    />
+  );
+};

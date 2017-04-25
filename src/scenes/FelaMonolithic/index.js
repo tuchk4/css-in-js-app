@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRenderer } from 'fela';
 import { Provider } from 'react-fela';
+import monolithic from 'fela-monolithic';
 import Page from '../../components/Page';
 
 let renderer = null;
@@ -8,7 +9,10 @@ let mountNode = null;
 
 export default () => {
   if (!renderer) {
-    renderer = createRenderer();
+    renderer = createRenderer({
+      enhancers: [monolithic()],
+    });
+
     mountNode = document.createElement('style');
     document.head.appendChild(mountNode);
   }
@@ -16,7 +20,7 @@ export default () => {
   return (
     <Provider renderer={renderer} mountNode={mountNode}>
       <Page
-        title="Fela"
+        title="Fela Monolithic"
         github="rofrischmann/fela"
         load={onLoad => {
           require.ensure(['./Block', './DifferentBlocks'], () => {

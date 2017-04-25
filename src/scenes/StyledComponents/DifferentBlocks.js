@@ -1,6 +1,6 @@
 import config from '../../config';
 import styled from 'styled-components';
-import Block from './block';
+import Block from './Block';
 
 const components = [];
 

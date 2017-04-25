@@ -1,6 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+
+import { create as createJss } from 'jss';
+import { create as createInjectSheet } from 'react-jss';
+import preset from 'jss-preset-default';
+
+const jss = createJss(preset());
+const injectSheet = createInjectSheet(jss);
+
 import colors from '../../utils/colors';
 
 const styles = {

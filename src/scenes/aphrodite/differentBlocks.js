@@ -2,7 +2,7 @@ import React from 'react';
 import config from '../../config';
 import { StyleSheet, css } from 'aphrodite/no-important';
 
-import Block from './block';
+import Block from './Block';
 
 const components = [];
 

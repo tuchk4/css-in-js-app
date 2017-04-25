@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'glamor';
 
 import config from '../../config';
-import Block from './block';
+import Block from './Block';
 
 const components = [];
 
