@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { HashRouter, Route } from 'react-router-dom';
-
+import Perf from 'react-addons-perf';
 import Aphrodite from './scenes/aphrodite';
 import JSS from './scenes/jss';
 import StyledJSS from './scenes/styled-jss';
@@ -12,6 +12,8 @@ import Fela from './scenes/fela';
 import StyledComponents from './scenes/styled-components';
 
 import './index.css';
+
+window.Perf = Perf;
 
 ReactDOM.render(
   <HashRouter>

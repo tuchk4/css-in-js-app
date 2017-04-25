@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+// import Perf from 'react-addons-perf';
 import now from 'performance-now';
 import config from '../config';
 
+// window.Perf = Perf;
 
 class Perfomance extends Component {
-
   constructor(props) {
     super(props);
     this.createdAt = now();
@@ -13,6 +14,17 @@ class Perfomance extends Component {
   componentDidMount() {
     const ms = (now() - this.createdAt).toFixed(0);
     this.props.onDidMount(`${ms} ms`);
+
+    // Perf.stop();
+    //
+    // console.info('printInclusive');
+    // Perf.printInclusive();
+    //
+    // console.info('printExclusive');
+    // Perf.printExclusive();
+    //
+    // console.info('printWasted');
+    // Perf.printWasted();
   }
 
   render() {

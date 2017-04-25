@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+// import Perf from 'react-addons-perf';
 import Perfomance from './perfomance';
 
 class Page extends React.Component {
@@ -17,6 +17,8 @@ class Page extends React.Component {
   checkbox = null;
 
   onRenderSameComponents = () => {
+    // Perf.start();
+
     this.setState({
       type: 'SAME_COMOPNENT',
     });
