@@ -19,5 +19,5 @@ there are:
 - Input to change text
 - Links to source code of each bundle
 
-![CSS in JS Screenshot](https://cloud.githubusercontent.com/assets/5140611/25412429/59817ee0-2a2b-11e7-8ca6-c2326e36e734.png)
+![CSS in JS Screenshot](https://cloud.githubusercontent.com/assets/5140611/25412482/a1014a34-2a2b-11e7-8c73-a588a8912ff5.png)
 
