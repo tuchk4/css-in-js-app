@@ -11,6 +11,7 @@ export default () => {
   if (!renderer) {
     renderer = createRenderer({
       enhancers: [monolithic()],
+      selectorPrefix: 'cij_',
     });
 
     mountNode = document.createElement('style');

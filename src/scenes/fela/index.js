@@ -8,7 +8,10 @@ let mountNode = null;
 
 export default () => {
   if (!renderer) {
-    renderer = createRenderer();
+    renderer = createRenderer({
+      selectorPrefix: 'cij_',
+    });
+
     mountNode = document.createElement('style');
     document.head.appendChild(mountNode);
   }
