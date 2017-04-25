@@ -1,12 +1,7 @@
-import React from 'react';
 import rockey from 'rockey-react';
 import colors from '../../utils/colors';
 
-const Block = ({ className, children }) => {
-  return <div className={className}>{children}</div>;
-};
-
-export default rockey(Block)`
+export default rockey.div`
   min-width: 16px;
   height: 16px;
   float: left;

@@ -2,13 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import colors from '../../utils/colors';
 
-const Block = ({ className, children }) => {
-  return <div className={className}>{children}</div>;
-};
-
-Block.displayName = 'Block';
-
-export default styled(Block)`
+export default styled.div`
   min-width: 16px;
   height: 16px;
   float: left;
