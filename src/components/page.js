@@ -56,7 +56,7 @@ class Page extends React.Component {
 
     return (
       <div className="App">
-        <div className="App-header">
+        <div className="AppHeader AppMenu">
           <Link className={getLinkClassName('Rockey')} to="/Rockey">
             Rockey
           </Link>
@@ -66,24 +66,26 @@ class Page extends React.Component {
           <Link className={getLinkClassName('Fela')} to="/Fela">Fela</Link>
           <Link className={getLinkClassName('Glamor')} to="Glamor">Glamor</Link>
           <Link className={getLinkClassName('JSS')} to="JSS">JSS</Link>
+          <Link className={getLinkClassName('styled-JSS')} to="styled-JSS">styled-JSS</Link>
           <Link
             className={getLinkClassName('styled-components')}
             to="/styled-components"
           >
             styled-components
           </Link>
-
-          {this.props.link
-            ? <a
-                className="Right"
-                target="blank"
-                href={`https://github.com/${this.props.link}`}
-              >
-                gh: {this.props.link}
-              </a>
-            : null}
         </div>
-        <div className="App-header App-buttons">
+        <div className="AppHeader AppButtons">
+          <div>
+            {this.props.link
+              ? <a
+                  className="GhLink"
+                  target="blank"
+                  href={`https://github.com/${this.props.link}`}
+                >
+                  gh: {this.props.link}
+                </a>
+              : null}
+          </div>
           <div className="ButtonBlock">
             <button
               disabled={this.state.type}
@@ -123,7 +125,7 @@ class Page extends React.Component {
             </button>
           </div>
 
-          <div className="App-buttons App-buttons-primary">
+          <div className="AppButtons AppButtonsPrimary">
             <div className="PropsBlock">
               <input
                 className="Checkbox"

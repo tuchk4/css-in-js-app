@@ -19,7 +19,8 @@
     "react-router-dom": "^4.0.0",
     "rockey": "0.0.5-alpha.cccf18c5",
     "rockey-react": "0.0.8-alpha.cccf18c5",
-    "styled-components": "^2.0.0-15"
+    "styled-components": "^2.0.0-15",
+    "styled-jss": "^0.5.1"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",

@@ -5,6 +5,7 @@ import { HashRouter, Route } from 'react-router-dom';
 
 import Aphrodite from './scenes/aphrodite';
 import JSS from './scenes/jss';
+import StyledJSS from './scenes/styled-jss';
 import Glamor from './scenes/glamor';
 import Rockey from './scenes/rockey';
 import Fela from './scenes/fela';
@@ -20,6 +21,7 @@ ReactDOM.render(
       <Route path="/Glamor" component={Glamor} />
       <Route path="/Aphrodite" component={Aphrodite} />
       <Route path="/JSS" component={JSS} />
+      <Route path="/styled-JSS" component={StyledJSS} />
       <Route path="/Fela" component={Fela} />
       <Route path="/styled-components" component={StyledComponents} />
     </div>
