@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.0",
     "prettier": "^1.2.2",
     "react-scripts": "0.9.5"
   },
@@ -35,6 +37,13 @@
     "eject": "react-scripts eject",
     "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js'",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "git add"
+    ]
   }
 }
