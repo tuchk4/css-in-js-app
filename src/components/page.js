@@ -54,7 +54,7 @@ class Page extends React.Component {
 
   render() {
     const getLinkClassName = title =>
-      title === this.props.title ? 'active' : null;
+      (title === this.props.title ? 'active' : null);
 
     return (
       <div className="App">
@@ -68,7 +68,9 @@ class Page extends React.Component {
           <Link className={getLinkClassName('Fela')} to="/Fela">Fela</Link>
           <Link className={getLinkClassName('Glamor')} to="Glamor">Glamor</Link>
           <Link className={getLinkClassName('JSS')} to="JSS">JSS</Link>
-          <Link className={getLinkClassName('styled-JSS')} to="styled-JSS">styled-JSS</Link>
+          <Link className={getLinkClassName('styled-JSS')} to="styled-JSS">
+            styled-JSS
+          </Link>
           <Link
             className={getLinkClassName('styled-components')}
             to="/styled-components"
@@ -96,8 +98,10 @@ class Page extends React.Component {
             >
               Render 1000 same components
             </button>
-            <a target="blank"
-              href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title.toLowerCase()}/block.js`}>
+            <a
+              target="blank"
+              href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title.toLowerCase()}/block.js`}
+            >
               Component source
             </a>
           </div>
@@ -111,8 +115,10 @@ class Page extends React.Component {
               Render 1000 differnet components
             </button>
 
-            <a target="blank"
-              href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title.toLowerCase()}/differentBlocks.js`}>
+            <a
+              target="blank"
+              href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title.toLowerCase()}/differentBlocks.js`}
+            >
               Components source
             </a>
           </div>
@@ -155,8 +161,7 @@ class Page extends React.Component {
         </div>
 
         <div>
-          {
-            this.state.type
+          {this.state.type
             ? <Perfomance
                 type={this.state.type}
                 component={this.props.component}
@@ -165,11 +170,13 @@ class Page extends React.Component {
                 props={this.state.props}
               />
             : <div className="RepoLink">
-                <a href="https://github.com/tuchk4/css-in-js-app" target="blank">
+                <a
+                  href="https://github.com/tuchk4/css-in-js-app"
+                  target="blank"
+                >
                   https://github.com/tuchk4/css-in-js-app
                 </a>
-              </div>
-          }
+              </div>}
         </div>
       </div>
     );

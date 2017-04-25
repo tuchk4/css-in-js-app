@@ -5,7 +5,7 @@ class Glamor extends React.Component {
   state = {
     block: null,
     differentBlocks: null,
-  }
+  };
 
   componentDidMount() {
     require.ensure(['./block', './differentBlocks'], () => {
@@ -39,6 +39,6 @@ class Glamor extends React.Component {
       />
     );
   }
-};
+}
 
 export default Glamor;

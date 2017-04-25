@@ -1,4 +1,4 @@
-import styled from 'styled-jss'
+import styled from 'styled-jss';
 import colors from '../../utils/colors';
 
 const Block = styled('div', {
@@ -10,11 +10,12 @@ const Block = styled('div', {
   border: '0',
   fontWeight: 'bold',
   transition: 'background-color .5s, color 1s',
-  backgroundColor: props => props.isPrimary ? colors[props.i][1] : colors[props.i][0],
+  backgroundColor: props =>
+    (props.isPrimary ? colors[props.i][1] : colors[props.i][0]),
   '&:hover': {
     backgroundColor: 'black !important',
     color: 'white',
-  }
+  },
 });
 
 export default Block;

@@ -5,7 +5,7 @@ class JSS extends React.Component {
   state = {
     block: null,
     differentBlocks: null,
-  }
+  };
 
   componentDidMount() {
     require.ensure(['./block', './differentBlocks'], () => {
@@ -42,6 +42,6 @@ class JSS extends React.Component {
       />
     );
   }
-};
+}
 
 export default JSS;

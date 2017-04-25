@@ -17,6 +17,6 @@ export default rockey.div`
   }
 
   ${props => {
-    return `background-color: ${props.isPrimary ? colors[props.i][1] : colors[props.i][0]};`
-  }}
+  return `background-color: ${props.isPrimary ? colors[props.i][1] : colors[props.i][0]};`;
+}}
 `;

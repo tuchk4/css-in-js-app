@@ -11,7 +11,7 @@ class Fela extends React.Component {
   state = {
     block: null,
     differentBlocks: null,
-  }
+  };
 
   componentDidMount() {
     require.ensure(['./block', './differentBlocks'], () => {
@@ -53,6 +53,6 @@ class Fela extends React.Component {
       </Provider>
     );
   }
-};
+}
 
 export default Fela;

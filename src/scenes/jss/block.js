@@ -17,7 +17,7 @@ const styles = {
       backgroundColor: 'black !important',
       color: 'white',
     },
-  }
+  },
 };
 
 for (let i = 0; i < colors.length; i++) {
@@ -31,14 +31,9 @@ for (let i = 0; i < colors.length; i++) {
 }
 
 const Block = ({ i, isPrimary, className, classes, children }) => {
-  const classList = classnames(
-    className,
-    classes.block,
-    classes[`block${i}`],
-    {
-      [classes[`primaryBlock${i}`]]: isPrimary,
-    }
-  );
+  const classList = classnames(className, classes.block, classes[`block${i}`], {
+    [classes[`primaryBlock${i}`]]: isPrimary,
+  });
 
   return <div className={classList}>{children}</div>;
 };

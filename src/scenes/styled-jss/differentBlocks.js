@@ -1,4 +1,4 @@
-import styled from 'styled-jss'
+import styled from 'styled-jss';
 import config from '../../config';
 import Block from './block';
 
@@ -16,6 +16,5 @@ for (let i = 0; i < config.size; i++) {
 
   components.push(component);
 }
-
 
 export default components;

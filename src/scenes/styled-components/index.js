@@ -5,7 +5,7 @@ class StyledComponents extends React.Component {
   state = {
     block: null,
     differentBlocks: null,
-  }
+  };
 
   componentDidMount() {
     require.ensure(['./block', './differentBlocks'], () => {
@@ -39,6 +39,6 @@ class StyledComponents extends React.Component {
       />
     );
   }
-};
+}
 
 export default StyledComponents;
