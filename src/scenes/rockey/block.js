@@ -6,8 +6,6 @@ const Block = ({ className, children }) => {
   return <div className={className}>{children}</div>;
 };
 
-Block.displayName = 'Block';
-
 export default rockey(Block)`
   min-width: 16px;
   height: 16px;
@@ -23,9 +21,7 @@ export default rockey(Block)`
     color: white;
   }
 
-  ${function prettyBackground(props) {
-  return `
-      background-color: ${props.isPrimary ? colors[props.i][1] : colors[props.i][0]};
-    `;
-}}
+  ${props => {
+    return `background-color: ${props.isPrimary ? colors[props.i][1] : colors[props.i][0]};`
+  }}
 `;

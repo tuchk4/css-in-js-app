@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-jss'
 import config from '../../config';
 import Block from './block';

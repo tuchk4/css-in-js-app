@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { css } from 'glamor';
 import colors from '../../utils/colors';
 
-const buttonRule = css({
+const blockRule = css({
   minWidth: '16px',
   height: '16px',
   float: 'left',
@@ -18,21 +18,19 @@ const buttonRule = css({
   },
 });
 
-const primaryRule = css({});
-
 const rules = {
-  button: [],
-  primaryButton: [],
+  block: [],
+  primaryBlock: [],
 };
 
 for (let i = 0; i < colors.length; i++) {
-  rules.button.push(
+  rules.block.push(
     css({
       backgroundColor: colors[i][0],
     })
   );
 
-  rules.primaryButton.push(
+  rules.primaryBlock.push(
     css({
       backgroundColor: colors[i][1],
     })
@@ -42,11 +40,10 @@ for (let i = 0; i < colors.length; i++) {
 const Block = ({ i, isPrimary, className, classes, children }) => {
   const classList = classnames(
     className,
-    buttonRule.toString(),
-    rules.button[i].toString(),
+    blockRule.toString(),
+    rules.block[i].toString(),
     {
-      [primaryRule]: isPrimary,
-      [rules.primaryButton[i]]: isPrimary,
+      [rules.primaryBlock[i]]: isPrimary,
     }
   );
 

@@ -1,5 +1,3 @@
-import React from 'react';
-import classnames from 'classnames';
 import styled from 'styled-jss'
 import colors from '../../utils/colors';
 
