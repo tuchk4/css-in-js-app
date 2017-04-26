@@ -5,10 +5,10 @@ import { create as createJss } from 'jss';
 import { create as createInjectSheet } from 'react-jss';
 import preset from 'jss-preset-default';
 
+import colors from '../../utils/colors';
+
 const jss = createJss(preset());
 const injectSheet = createInjectSheet(jss);
-
-import colors from '../../utils/colors';
 
 const styles = {
   block: {
