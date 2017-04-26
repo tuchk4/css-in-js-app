@@ -97,7 +97,7 @@ class Page extends React.Component {
           </button>
 
           <a
-            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title.toLowerCase()}/block.js`}
+            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title}/Block.js`}
             target="blank"
             className="soruce-link"
           >
@@ -112,7 +112,7 @@ class Page extends React.Component {
           </button>
 
           <a
-            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title.toLowerCase()}/differentBlocks.js`}
+            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title}/DifferentBlocks.js`}
             target="blank"
             className="soruce-link"
           >

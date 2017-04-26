@@ -4,7 +4,7 @@ import Page from '../../components/Page';
 export default () => {
   return (
     <Page
-      title="Glamor"
+      title="GlamorStyled"
       github="threepointone/glamor"
       load={onLoad => {
         require.ensure(['./Block', './DifferentBlocks'], () => {

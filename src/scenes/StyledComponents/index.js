@@ -4,7 +4,7 @@ import Page from '../../components/Page';
 export default () => {
   return (
     <Page
-      title="styled-components"
+      title="StyledComponents"
       github="styled-components/styled-components"
       load={onLoad => {
         require.ensure(['./Block', './DifferentBlocks'], () => {

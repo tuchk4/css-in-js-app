@@ -4,7 +4,7 @@ import Page from '../../components/Page';
 export default () => {
   return (
     <Page
-      title="styled-jss"
+      title="StyledJss"
       github="cssinjs/styled-jss"
       load={onLoad => {
         require.ensure(['./Block', './DifferentBlocks'], () => {

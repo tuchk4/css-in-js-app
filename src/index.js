@@ -9,7 +9,7 @@ import Box, { Page } from 'react-layout-components';
 import Aphrodite from './scenes/Aphrodite';
 
 import ReactJss from './scenes/ReactJss';
-import ReactJssWithoutPlugins from './scenes/ReactJssWihtoutPlugins';
+import ReactJssWithoutPlugins from './scenes/ReactJssWithoutPlugins';
 import StyledJSS from './scenes/StyledJss';
 
 import Glamor from './scenes/Glamor';

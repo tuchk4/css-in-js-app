@@ -4,7 +4,7 @@ import Page from '../../components/Page';
 export default () => {
   return (
     <Page
-      title="jss"
+      title="ReactJss"
       github="cssinjs/jss"
       load={onLoad => {
         require.ensure(['./Block', './DifferentBlocks'], () => {

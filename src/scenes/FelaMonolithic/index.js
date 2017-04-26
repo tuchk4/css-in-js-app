@@ -21,7 +21,7 @@ export default () => {
   return (
     <Provider renderer={renderer} mountNode={mountNode}>
       <Page
-        title="Fela Monolithic"
+        title="FelaMonolithic"
         github="rofrischmann/fela"
         load={onLoad => {
           require.ensure(['./Block', './DifferentBlocks'], () => {
