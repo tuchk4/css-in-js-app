@@ -22,9 +22,10 @@
     "react-metismenu": "^1.3.0-alpha.3",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
+    "react-tooltip": "^3.3.0",
     "recompose": "^0.23.1",
-    "rockey": "0.0.7",
-    "rockey-react": "0.0.11",
+    "rockey": "=0.0.8-alpha.98aa19dd",
+    "rockey-react": "=0.0.12-alpha.98aa19dd",
     "styled-components": "^2.0.0-15",
     "styled-jss": "^0.6.1"
   },
