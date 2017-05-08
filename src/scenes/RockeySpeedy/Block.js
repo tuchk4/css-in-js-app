@@ -1,3 +1,4 @@
+// import 'rockey-react/speedy';
 import rockey from 'rockey-react';
 import colors from '../../utils/colors';
 

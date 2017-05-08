@@ -15,6 +15,7 @@ import StyledJSS from './scenes/StyledJss';
 import Glamor from './scenes/Glamor';
 
 import Rockey from './scenes/Rockey';
+import RockeySpeedy from './scenes/RockeySpeedy';
 
 import Fela from './scenes/Fela';
 import FelaMonolithic from './scenes/FelaMonolithic';
@@ -29,7 +30,7 @@ window.Perf = Perf;
 const content = [
   {
     label: 'Rockey',
-    to: '#/rockey',
+    to: '#/rockey-react',
   },
   {
     label: 'Glamor',
@@ -91,7 +92,8 @@ ReactDOM.render(
         </Box>
         <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
           <Route exact path="/" component={Rockey} />
-          <Route path="/rockey" component={Rockey} />
+          <Route path="/rockey-react" component={Rockey} />
+          <Route path="/rockey-react-speedy" component={RockeySpeedy} />
 
           <Route path="/glamor" component={Glamor} />
 

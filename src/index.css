@@ -21,12 +21,23 @@ body {
   font-size: 2em;
 }
 
+.time-container {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+}
+
 .time {
-  position: absolute;
-  top: -2em;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   color: #551a8b;
+  margin-right: 25px;
+}
+
+.render-time {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #f53;
 }
 
 .controlls-space {
