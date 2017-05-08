@@ -108,7 +108,7 @@ class Page extends React.Component {
             disabled={!this.state.block || this.state.type}
             onClick={this.onRenderDifferentComponents}
           >
-            Render 1000 differnet components
+            Render 1000 different components
           </button>
 
           <a
