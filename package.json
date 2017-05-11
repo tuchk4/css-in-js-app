@@ -28,7 +28,10 @@
     "rockey": "=0.0.8-alpha.98aa19dd",
     "rockey-react": "=0.0.12-alpha.98aa19dd",
     "styled-components": "^2.0.0-15",
-    "styled-jss": "^0.6.1"
+    "styled-jss": "^0.6.1",
+    "styletron": "^2.5.7",
+    "styletron-client": "^2.5.7",
+    "styletron-react": "^2.5.8"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",

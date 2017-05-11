@@ -8,6 +8,7 @@ import Box, { Page } from 'react-layout-components';
 
 import Aphrodite from './scenes/Aphrodite';
 import Glamorous from './scenes/Glamorous';
+import Styletron from './scenes/Styletron';
 
 import ReactJss from './scenes/ReactJss';
 import ReactJssWithoutPlugins from './scenes/ReactJssWithoutPlugins';
@@ -41,6 +42,10 @@ const content = [
   {
     label: 'Glamorous',
     to: '#/glamorous',
+  },
+  {
+    label: 'Styletron',
+    to: '#/styletron',
   },
   {
     label: 'Aphrodite',
@@ -107,6 +112,7 @@ ReactDOM.render(
 
           <Route path="/glamor" component={Glamor} />
           <Route path="/glamorous" component={Glamorous} />
+          <Route path="/styletron" component={Styletron} />
 
           <Route path="/aphrodite" component={Aphrodite} />
 
