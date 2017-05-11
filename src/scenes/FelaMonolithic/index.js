@@ -15,6 +15,7 @@ export default () => {
       Provider={({ children }) => {
         if (!renderer) {
           renderer = createRenderer({
+            enhancers: [monolithic()],
             selectorPrefix: 'cij_',
           });
 
