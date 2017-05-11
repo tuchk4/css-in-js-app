@@ -10,6 +10,7 @@
     "fela-dom": "^4.3.5",
     "fela-monolithic": "^4.3.2",
     "glamor": "^2.20.24",
+    "glamorous": "^3.14.0",
     "jss": "^7.1.1",
     "jss-preset-default": "^2.0.0",
     "performance-now": "^2.1.0",

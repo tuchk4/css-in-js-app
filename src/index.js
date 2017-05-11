@@ -7,10 +7,12 @@ import MetisMenu from 'react-metismenu';
 import Box, { Page } from 'react-layout-components';
 
 import Aphrodite from './scenes/Aphrodite';
+import Glamorous from './scenes/Glamorous';
 
 import ReactJss from './scenes/ReactJss';
 import ReactJssWithoutPlugins from './scenes/ReactJssWithoutPlugins';
 import StyledJSS from './scenes/StyledJss';
+import ReactInline from './scenes/ReactInline';
 
 import Glamor from './scenes/Glamor';
 
@@ -35,6 +37,10 @@ const content = [
   {
     label: 'Glamor',
     to: '#/glamor',
+  },
+  {
+    label: 'Glamorous',
+    to: '#/glamorous',
   },
   {
     label: 'Aphrodite',
@@ -74,6 +80,10 @@ const content = [
     label: 'styled-components',
     to: '#/styled-components',
   },
+  {
+    label: 'react-inline',
+    to: '#/react-inline',
+  },
 ];
 
 ReactDOM.render(
@@ -96,6 +106,7 @@ ReactDOM.render(
           <Route path="/rockey-react-speedy" component={RockeySpeedy} />
 
           <Route path="/glamor" component={Glamor} />
+          <Route path="/glamorous" component={Glamorous} />
 
           <Route path="/aphrodite" component={Aphrodite} />
 
@@ -109,6 +120,7 @@ ReactDOM.render(
           <Route path="/react-fela" component={Fela} />
           <Route path="/react-fela-monolithic" component={FelaMonolithic} />
           <Route path="/styled-components" component={StyledComponents} />
+          <Route path="/react-inline" component={ReactInline} />
         </div>
       </Box>
     </Page>
