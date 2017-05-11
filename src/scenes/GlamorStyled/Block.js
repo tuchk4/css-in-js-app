@@ -9,10 +9,9 @@ export default styled.div`
   float: left;
   text-align: center;
   padding: 15px;
-  border: 0;
+  border: none;
   font-weight: bold;
   background-color: ${props => (props.isPrimary ? colors[props.i][1] : colors[props.i][0])};
-  transition: background-color .5s, color 1s;
 
   &:hover {
     background-color: black;

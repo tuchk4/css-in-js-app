@@ -1,3 +1,5 @@
+import config from '../config';
+
 const getRgb = i => {
   switch (true) {
     case i <= 255:
@@ -31,13 +33,20 @@ const getRgb = i => {
 
 const colors = [];
 
-const treshold = 255 * 3;
-for (let i = 0; i < 1000; i++) {
-  const rgb = getRgb(i < treshold ? i : treshold - (i - treshold));
+let j = 1;
+let direction = true;
+for (let i = 0; i < config.size; i++) {
+  if (j === 0 || j === 255 * 3) {
+    direction = !direction;
+  }
+
+  const rgb = getRgb(j);
   colors.push([
     `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`,
     `rgb(${rgb.b}, ${rgb.r}, ${rgb.g})`,
   ]);
+
+  direction ? j++ : j--;
 }
 
 export default colors;

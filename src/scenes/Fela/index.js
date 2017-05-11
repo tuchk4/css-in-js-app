@@ -7,29 +7,34 @@ let renderer = null;
 let mountNode = null;
 
 export default () => {
-  if (!renderer) {
-    renderer = createRenderer({
-      selectorPrefix: 'cij_',
-    });
-
-    mountNode = document.createElement('style');
-    document.head.appendChild(mountNode);
-  }
-
   return (
-    <Provider renderer={renderer} mountNode={mountNode}>
-      <Page
-        title="Fela"
-        github="rofrischmann/fela"
-        load={onLoad => {
-          require.ensure(['./Block', './DifferentBlocks'], () => {
-            const block = require('./Block').default;
-            const differentBlocks = require('./DifferentBlocks').default;
-
-            onLoad({ block, differentBlocks });
+    <Page
+      title="Fela"
+      github="rofrischmann/fela"
+      Provider={({ children }) => {
+        if (!renderer) {
+          renderer = createRenderer({
+            selectorPrefix: 'cij_',
           });
-        }}
-      />
-    </Provider>
+
+          mountNode = document.createElement('style');
+          document.head.appendChild(mountNode);
+        }
+
+        return (
+          <Provider renderer={renderer} mountNode={mountNode}>
+            {children}
+          </Provider>
+        );
+      }}
+      load={onLoad => {
+        require.ensure(['./Block', './DifferentBlocks'], () => {
+          const block = require('./Block').default;
+          const differentBlocks = require('./DifferentBlocks').default;
+
+          onLoad({ block, differentBlocks });
+        });
+      }}
+    />
   );
 };

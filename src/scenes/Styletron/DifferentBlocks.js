@@ -1,4 +1,3 @@
-import React from 'react';
 import { styled } from 'styletron-react';
 
 import config from '../../config';

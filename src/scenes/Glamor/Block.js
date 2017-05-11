@@ -9,9 +9,8 @@ const blockRule = css({
   float: 'left',
   textAlign: 'center',
   padding: '15px',
-  border: '0',
+  border: 'none',
   fontWeight: 'bold',
-  transition: 'background-color .5s, color 1s',
   '&:hover': {
     backgroundColor: 'black !important',
     color: 'white',
@@ -49,7 +48,5 @@ const Block = ({ i, isPrimary, className, classes, children }) => {
 
   return <div className={classList}>{children}</div>;
 };
-
-Block.displayName = 'Block';
 
 export default Block;

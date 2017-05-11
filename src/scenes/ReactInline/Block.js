@@ -10,7 +10,7 @@ export default props => {
         float: 'left',
         textAlign: 'center',
         padding: '15px',
-        border: '0',
+        border: 'none',
         fontWeight: 'bold',
         backgroundColor: props.isPrimary
           ? colors[props.i][1]

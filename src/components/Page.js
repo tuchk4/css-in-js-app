@@ -86,6 +86,11 @@ class Page extends React.Component {
   }
 
   render() {
+    const Provider = this.props.Provider
+      ? this.props.Provider
+      : ({ children }) => <div>{children}</div>;
+
+    console.log(Provider);
     return (
       <ScrollView width="100%" flex={1}>
         <Box center className="controlls-space">
@@ -146,12 +151,14 @@ class Page extends React.Component {
               </p>
             </div>}
           {this.state.type &&
-            <Perfomance
-              type={this.state.type}
-              component={this.state.block}
-              components={this.state.differentBlocks}
-              props={this.state.props}
-            />}
+            <Provider>
+              <Perfomance
+                type={this.state.type}
+                component={this.state.block}
+                components={this.state.differentBlocks}
+                props={this.state.props}
+              />
+            </Provider>}
         </Box>
       </ScrollView>
     );

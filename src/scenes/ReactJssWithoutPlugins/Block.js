@@ -16,9 +16,8 @@ const styles = {
     float: 'left',
     'text-align': 'center',
     padding: '15px',
-    border: '0',
+    border: 'none',
     'font-weight': 'bold',
-    transition: 'background-color .5s, color 1s',
     '&:hover': {
       'background-color': 'black !important',
       color: 'white',
@@ -43,7 +42,5 @@ const Block = ({ i, isPrimary, className, classes, children }) => {
 
   return <div className={classList}>{children}</div>;
 };
-
-Block.displayName = 'Block';
 
 export default injectSheet(styles)(Block);
