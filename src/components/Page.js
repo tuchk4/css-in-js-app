@@ -90,7 +90,6 @@ class Page extends React.Component {
       ? this.props.Provider
       : ({ children }) => <div>{children}</div>;
 
-    console.log(Provider);
     return (
       <ScrollView width="100%" flex={1}>
         <Box center className="controlls-space">

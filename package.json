@@ -30,7 +30,9 @@
     "styled-jss": "^0.6.1",
     "styletron": "^2.5.7",
     "styletron-client": "^2.5.7",
-    "styletron-react": "^2.5.8"
+    "styletron-react": "^2.5.8",
+    "tinycolor": "0.0.1",
+    "tinygradient": "^0.3.1"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",

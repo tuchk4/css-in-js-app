@@ -10,14 +10,16 @@ There is React application with implemented different css-in-js approaches:
 - [Aphrodite](https://github.com/Khan/aphrodite)
 - [JSS](https://github.com/cssinjs/jss)
 - [styled-components](https://github.com/styled-components/styled-components)
+- [styletron](https://github.com/rtsao/styletron)
+- [glamorous](https://github.com/paypal/glamorous)
+- and example with React inline styles
 
 Each bundle is lazy initializing (so for better results update page before test to keep initialized only current bundle). Also
 there are:
 
-- Timers for rendering 1000 same components and 1000 different components with styles defined in JS.
+- Timers for rendering 10000 same components and 10000 different components with styles defined in JS.
 - Checkbox to switch `primary` property
 - Input to change text
 - Links to source code of each bundle
 
-![CSS in JS Screenshot](https://cloud.githubusercontent.com/assets/5140611/25412482/a1014a34-2a2b-11e7-8c73-a588a8912ff5.png)
-
+![CSS in JS Screenshot](https://monosnap.com/file/CQNzOFX3vXqlf00drV0QMHgtaHM5X9.png)

@@ -1,52 +1,16 @@
 import config from '../config';
+import tinygradient from 'tinygradient';
 
-const getRgb = i => {
-  switch (true) {
-    case i <= 255:
-      return {
-        r: i,
-        g: 100,
-        b: 100,
-      };
+var gradient1 = tinygradient.rgb(
+  ['#43C6AC', '#F8FFAE', '#fc00ff', '#CFDEF3', '#3494E6'],
+  config.size
+);
 
-    case i > 255 && i <= 255 * 2:
-      return {
-        r: 255,
-        g: i - 255,
-        b: 100,
-      };
+var gradient2 = tinygradient.rgb(
+  ['#dc2430', '#c2e59c', '#FFB75E', '#7b4397', '#00dbde'],
+  config.size
+);
 
-    case i > 255 * 2:
-      return {
-        r: 255,
-        g: 255,
-        b: i - 255 * 2,
-      };
-    default:
-      return {
-        r: 100,
-        g: 100,
-        b: 100,
-      };
-  }
-};
-
-const colors = [];
-
-let j = 1;
-let direction = true;
-for (let i = 0; i < config.size; i++) {
-  if (j === 0 || j === 255 * 3) {
-    direction = !direction;
-  }
-
-  const rgb = getRgb(j);
-  colors.push([
-    `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`,
-    `rgb(${rgb.b}, ${rgb.r}, ${rgb.g})`,
-  ]);
-
-  direction ? j++ : j--;
-}
-
-export default colors;
+export default gradient1.map((color, i) => {
+  return [`#${color.toHex()}`, `#${gradient2[i].toHex()}`];
+});

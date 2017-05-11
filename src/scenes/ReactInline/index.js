@@ -4,7 +4,7 @@ import Page from '../../components/Page';
 export default () => {
   return (
     <Page
-      title="React Inline"
+      title="ReactInline"
       github="facebook/react"
       load={onLoad => {
         require.ensure(['./Block', './DifferentBlocks'], () => {
