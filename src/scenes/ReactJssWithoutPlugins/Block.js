@@ -18,10 +18,6 @@ const styles = {
     padding: '15px',
     border: 'none',
     'font-weight': 'bold',
-    '&:hover': {
-      'background-color': 'black !important',
-      color: 'white',
-    },
   },
 };
 
