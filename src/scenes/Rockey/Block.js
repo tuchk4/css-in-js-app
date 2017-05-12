@@ -1,3 +1,4 @@
+import 'rockey-react/speedy';
 import rockey from 'rockey-react';
 import colors from '../../utils/colors';
 
@@ -7,7 +8,7 @@ export default rockey.div`
   float: left;
   text-align: center;
   padding: 15px;
-  border: 0;
+  border: none;
   font-weight: bold;
   background-color: ${props => (props.isPrimary ? colors[props.i][1] : colors[props.i][0])};
   :hover {
