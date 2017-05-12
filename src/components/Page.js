@@ -85,7 +85,21 @@ class Page extends React.Component {
     );
   }
 
-  renderPerf() {
+  renderPerf() {}
+
+  renderPage() {
+    if (!this.state.type) {
+      return (
+        <a
+          target="_blank"
+          className="repo-link"
+          href="https://github.com/tuchk4/css-in-js-app"
+        >
+          github.com/tuchk4/css-in-js-app
+        </a>
+      );
+    }
+
     const Provider = this.props.Provider;
 
     if (this.props.Provider) {
@@ -109,6 +123,18 @@ class Page extends React.Component {
         />
       );
     }
+  }
+  renderLoader() {
+    return (
+      <div className="loading">
+        <p>
+          Loading...
+        </p>
+        <p>
+          Assynchronous bundle downloading and its initialization.
+        </p>
+      </div>
+    );
   }
 
   render() {
@@ -159,19 +185,11 @@ class Page extends React.Component {
               gh: {this.props.github}
             </a>}
         </Box>
+
         {this.state.type && this.renderControlls()}
 
         <Box className="example-space">
-          {!this.state.block &&
-            <div className="loading">
-              <p>
-                Loading...
-              </p>
-              <p>
-                Assynchronous bundle downloading and its initialization.
-              </p>
-            </div>}
-          {this.state.type && this.renderPerf()}
+          {this.state.block ? this.renderPage() : this.renderLoader()}
         </Box>
       </ScrollView>
     );
