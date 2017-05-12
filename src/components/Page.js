@@ -85,11 +85,33 @@ class Page extends React.Component {
     );
   }
 
-  render() {
-    const Provider = this.props.Provider
-      ? this.props.Provider
-      : ({ children }) => <div>{children}</div>;
+  renderPerf() {
+    const Provider = this.props.Provider;
 
+    if (this.props.Provider) {
+      return (
+        <Provider>
+          <Perfomance
+            type={this.state.type}
+            component={this.state.block}
+            components={this.state.differentBlocks}
+            props={this.state.props}
+          />
+        </Provider>
+      );
+    } else {
+      return (
+        <Perfomance
+          type={this.state.type}
+          component={this.state.block}
+          components={this.state.differentBlocks}
+          props={this.state.props}
+        />
+      );
+    }
+  }
+
+  render() {
     return (
       <ScrollView width="100%" flex={1}>
         <Box center className="controlls-space">
@@ -149,15 +171,7 @@ class Page extends React.Component {
                 Assynchronous bundle downloading and its initialization.
               </p>
             </div>}
-          {this.state.type &&
-            <Provider>
-              <Perfomance
-                type={this.state.type}
-                component={this.state.block}
-                components={this.state.differentBlocks}
-                props={this.state.props}
-              />
-            </Provider>}
+          {this.state.type && this.renderPerf()}
         </Box>
       </ScrollView>
     );
