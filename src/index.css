@@ -4,9 +4,20 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.info-block {
+  margin: 100px auto;
+  text-align: center;
+}
+
+.info-block p {
+  width: 600px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  text-align: left;
+}
+
 .repo-link {
   display: block;
-  margin: 100px auto;
   font-size: 2em;
 }
 

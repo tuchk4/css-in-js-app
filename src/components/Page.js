@@ -90,14 +90,47 @@ class Page extends React.Component {
   renderPage() {
     if (!this.state.type) {
       return (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          className="repo-link"
-          href="https://github.com/tuchk4/css-in-js-app"
-        >
-          github.com/tuchk4/css-in-js-app
-        </a>
+        <div className="info-block">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className="repo-link"
+            href="https://github.com/tuchk4/css-in-js-app"
+          >
+            github.com/tuchk4/css-in-js-app
+          </a>
+          <p>
+            NOTE that this is not the real benchmark but it shows the differents between CSS in JS liraries and approaches under the same conditions. In this app the accent was made on dynamic CSS that depends on component props.
+          </p>
+          <p>
+            Each library has different features and possibilities.
+          </p>
+          <p>
+            For example fela and styletron uses
+            {' '}
+            <a
+              href="https://ryantsao.com/blog/virtual-css-with-styletron"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              atomic css desgin
+            </a>
+            .
+          </p>
+          <p>
+            styled-components and rockey uses
+            {' '}
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              template literals
+            </a>
+            {' '}
+            to define CSS.
+          </p>
+        </div>
       );
     }
 
