@@ -9,8 +9,9 @@ const Block = styled('div', {
   padding: '15px',
   border: 'none',
   fontWeight: 'bold',
+  transition: 'background-color .5s',
   backgroundColor: props =>
-    (props.isPrimary ? colors[props.i][1] : colors[props.i][0]),
+    props.isPrimary ? colors[props.i][1] : colors[props.i][0],
   '&:hover': {
     backgroundColor: 'black !important',
     color: 'white',

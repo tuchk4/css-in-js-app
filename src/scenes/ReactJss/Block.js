@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { create as createJss } from 'jss';
 import { create as createInjectSheet } from 'react-jss';
 import preset from 'jss-preset-default';
@@ -18,8 +17,9 @@ const styles = {
     padding: '15px',
     border: 'none',
     fontWeight: 'bold',
+    transition: 'background-color .5s',
     backgroundColor: props =>
-      (props.isPrimary ? colors[props.i][1] : colors[props.i][0]),
+      props.isPrimary ? colors[props.i][1] : colors[props.i][0],
     '&:hover': {
       backgroundColor: 'black !important',
       color: 'white',
@@ -27,8 +27,8 @@ const styles = {
   },
 };
 
-const Block = ({ classes, children }) => {
-  return <div className={classes.block}>{children}</div>;
+const Block = ({ classes, className, children }) => {
+  return <div className={`${className} ${classes.block}`}>{children}</div>;
 };
 
 export default injectSheet(styles)(Block);

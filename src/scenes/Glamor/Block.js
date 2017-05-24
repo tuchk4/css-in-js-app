@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import { css } from 'glamor';
 import colors from '../../utils/colors';
 
@@ -11,42 +10,23 @@ const blockRule = css({
   padding: '15px',
   border: 'none',
   fontWeight: 'bold',
+  transition: 'background-color .5s',
   '&:hover': {
     backgroundColor: 'black !important',
     color: 'white',
   },
 });
 
-const rules = {
-  block: [],
-  primaryBlock: [],
-};
-
-for (let i = 0; i < colors.length; i++) {
-  rules.block.push(
-    css({
-      backgroundColor: colors[i][0],
-    })
-  );
-
-  rules.primaryBlock.push(
-    css({
-      backgroundColor: colors[i][1],
-    })
-  );
-}
-
 const Block = ({ i, isPrimary, className, classes, children }) => {
-  const classList = classnames(
-    className,
-    blockRule.toString(),
-    rules.block[i].toString(),
-    {
-      [rules.primaryBlock[i]]: isPrimary,
-    }
-  );
+  const backgroundRule = css({
+    backgroundColor: isPrimary ? colors[i][1] : colors[i][0],
+  });
 
-  return <div className={classList}>{children}</div>;
+  return (
+    <div className={`${className} ${blockRule} ${backgroundRule}`}>
+      {children}
+    </div>
+  );
 };
 
 export default Block;

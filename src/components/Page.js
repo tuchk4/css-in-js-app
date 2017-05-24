@@ -92,6 +92,7 @@ class Page extends React.Component {
       return (
         <a
           target="_blank"
+          rel="noopener noreferrer"
           className="repo-link"
           href="https://github.com/tuchk4/css-in-js-app"
         >

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Perf from 'react-addons-perf';
 import MetisMenu from 'react-metismenu';
 import Box, { Page } from 'react-layout-components';
@@ -18,7 +18,6 @@ import ReactInline from './scenes/ReactInline';
 import Glamor from './scenes/Glamor';
 
 import Rockey from './scenes/Rockey';
-import RockeySpeedy from './scenes/RockeySpeedy';
 
 import Fela from './scenes/Fela';
 import FelaMonolithic from './scenes/FelaMonolithic';
@@ -59,7 +58,7 @@ const content = [
         to: '#/react-jss',
       },
       {
-        label: 'react-jss w/o plugins',
+        label: 'react-jss with only compose',
         to: '#/react-jss-wihtout-plugins',
       },
       {
@@ -92,44 +91,54 @@ const content = [
 ];
 
 ReactDOM.render(
-  <HashRouter>
-    <Page>
-      <Box fit>
-        <Box column>
-          <Box center>
-            <a href="https://github.com/tuchk4/css-in-js-app" target="blank">
-              <i className="fa fa-github fa-3x" aria-hidden="true" />
-            </a>
-          </Box>
-          <Box flex={1}>
-            <MetisMenu content={content} activeLinkFromLocation />
-          </Box>
+  <Page>
+    <Box fit>
+      <Box column>
+        <Box center>
+          <a href="https://github.com/tuchk4/css-in-js-app" target="blank">
+            <i className="fa fa-github fa-3x" aria-hidden="true" />
+          </a>
         </Box>
-        <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
-          <Route exact path="/" component={Rockey} />
-          <Route path="/rockey-react" component={Rockey} />
-          <Route path="/rockey-react-speedy" component={RockeySpeedy} />
-
-          <Route path="/glamor" component={Glamor} />
-          <Route path="/glamorous" component={Glamorous} />
-          <Route path="/styletron" component={Styletron} />
-
-          <Route path="/aphrodite" component={Aphrodite} />
-
-          <Route path="/react-jss" component={ReactJss} />
-          <Route
-            path="/react-jss-wihtout-plugins"
-            component={ReactJssWithoutPlugins}
-          />
-          <Route path="/styled-js" component={StyledJSS} />
-
-          <Route path="/react-fela" component={Fela} />
-          <Route path="/react-fela-monolithic" component={FelaMonolithic} />
-          <Route path="/styled-components" component={StyledComponents} />
-          <Route path="/react-inline" component={ReactInline} />
-        </div>
+        <Box flex={1}>
+          <MetisMenu content={content} activeLinkFromLocation />
+        </Box>
       </Box>
-    </Page>
-  </HashRouter>,
+      <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
+        <HashRouter>
+          <Switch>
+            <Route exact path="/" component={Rockey} />
+            <Route exact path="/rockey-react" component={Rockey} />
+
+            <Route exact path="/glamor" component={Glamor} />
+            <Route exact path="/glamorous" component={Glamorous} />
+            <Route exact path="/styletron" component={Styletron} />
+
+            <Route exact path="/aphrodite" component={Aphrodite} />
+
+            <Route exact path="/react-jss" component={ReactJss} />
+            <Route
+              exact
+              path="/react-jss-wihtout-plugins"
+              component={ReactJssWithoutPlugins}
+            />
+            <Route exact path="/styled-js" component={StyledJSS} />
+
+            <Route exact path="/react-fela" component={Fela} />
+            <Route
+              exact
+              path="/react-fela-monolithic"
+              component={FelaMonolithic}
+            />
+            <Route
+              exact
+              path="/styled-components"
+              component={StyledComponents}
+            />
+            <Route exact path="/react-inline" component={ReactInline} />
+          </Switch>
+        </HashRouter>
+      </div>
+    </Box>
+  </Page>,
   document.getElementById('root')
 );

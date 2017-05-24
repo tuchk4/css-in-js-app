@@ -10,6 +10,7 @@ export default rockey.div`
   padding: 15px;
   border: none;
   font-weight: bold;
+  transition: background-color .5s;
   background-color: ${props => (props.isPrimary ? colors[props.i][1] : colors[props.i][0])};
   :hover {
     background-color: black !important;

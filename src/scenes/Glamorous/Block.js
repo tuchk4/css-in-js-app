@@ -10,6 +10,7 @@ export default glamorous.div(
     padding: '15px',
     border: 'none',
     fontWeight: 'bold',
+    transition: 'background-color .5s',
     '&:hover': {
       backgroundColor: 'black',
       color: 'white',

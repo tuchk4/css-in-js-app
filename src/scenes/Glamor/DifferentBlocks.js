@@ -16,8 +16,10 @@ for (let i = 0; i < config.size; i++) {
     borderRadius: `${size * 6}px`,
   });
 
-  const component = ({ classes, children, ...props }) => {
-    return <Block className={rule.toString()} {...props}>{children}</Block>;
+  const component = ({ classes, className, children, ...props }) => {
+    return (
+      <Block className={`${className} ${rule}`} {...props}>{children}</Block>
+    );
   };
 
   components.push(component);

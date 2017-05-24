@@ -12,6 +12,7 @@ const styles = {
     padding: '15px',
     border: 'none',
     fontWeight: 'bold',
+    transition: 'background-color .5s',
     ':hover': {
       backgroundColor: 'black !important',
       color: 'white',

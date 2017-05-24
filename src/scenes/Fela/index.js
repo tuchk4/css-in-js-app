@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRenderer } from 'fela';
 import { Provider } from 'react-fela';
+import FPV from 'fela-plugin-validator';
 import Page from '../../components/Page';
 
 let renderer = null;
@@ -15,6 +16,7 @@ export default () => {
         if (!renderer) {
           renderer = createRenderer({
             selectorPrefix: 'cij_',
+            plugins: [FPV()],
           });
 
           mountNode = document.createElement('style');

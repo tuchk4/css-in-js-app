@@ -12,6 +12,7 @@ export default props => {
         padding: '15px',
         border: 'none',
         fontWeight: 'bold',
+        transition: 'background-color .5s',
         backgroundColor: props.isPrimary
           ? colors[props.i][1]
           : colors[props.i][0],
