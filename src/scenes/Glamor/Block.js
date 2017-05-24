@@ -17,10 +17,25 @@ const blockRule = css({
   },
 });
 
+const cache = new Map();
+const getCSS = (isPrimary, i) => {
+  const isPrimaryKey = isPrimary.toString();
+
+  if (!cache[i]) {
+    cache[i] = {};
+  }
+
+  if (!cache[i][isPrimaryKey]) {
+    cache[i][isPrimaryKey] = css({
+      backgroundColor: isPrimary ? colors[i][1] : colors[i][0],
+    });
+  }
+
+  return cache[i][isPrimaryKey];
+};
+
 const Block = ({ i, isPrimary, className, classes, children }) => {
-  const backgroundRule = css({
-    backgroundColor: isPrimary ? colors[i][1] : colors[i][0],
-  });
+  const backgroundRule = getCSS(isPrimary, i);
 
   return (
     <div className={`${className} ${blockRule} ${backgroundRule}`}>
