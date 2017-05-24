@@ -7,12 +7,11 @@ const styles = {
   block: {
     minWidth: '16px',
     height: '16px',
-    float: 'left',
+    display: 'inline-block',
     textAlign: 'center',
     padding: '15px',
     border: 'none',
     fontWeight: 'bold',
-    transition: 'background-color .5s',
     ':hover': {
       backgroundColor: 'black !important',
       color: 'white',

@@ -11,8 +11,6 @@ for (let i = 0; i < config.size; i++) {
 
   const sheet = StyleSheet.create({
     sizedButton: {
-      float: 'none !important',
-      display: 'inline-block',
       border: `${size + 2}px solid #000 !important`,
       borderRadius: `${size * 6}px`,
     },

@@ -5,12 +5,11 @@ import colors from '../../utils/colors';
 export default rockey.div`
   min-width: 16px;
   height: 16px;
-  float: left;
+  display: inline-block;
   text-align: center;
   padding: 15px;
   border: none;
   font-weight: bold;
-  transition: background-color .5s;
   background-color: ${props => (props.isPrimary ? colors[props.i][1] : colors[props.i][0])};
   :hover {
     background-color: black !important;

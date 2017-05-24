@@ -10,12 +10,11 @@ export default createComponent(
   props => ({
     minWidth: '16px',
     height: '16px',
-    float: 'left',
+    display: 'inline-block',
     textAlign: 'center',
     padding: '15px',
     border: 'none',
     fontWeight: 'bold',
-    transition: 'background-color .5s',
     backgroundColor: props.isPrimary ? colors[props.i][1] : colors[props.i][0],
     '&:hover': {
       backgroundColor: 'black',
