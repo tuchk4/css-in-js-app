@@ -113,7 +113,7 @@ class Page extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              atomic css desgin
+              atomic css design
             </a>
             .
           </p>
