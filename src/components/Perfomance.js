@@ -26,7 +26,7 @@ class Perfomance extends Component {
 
   componentDidMount() {
     metrics.push({
-      didMountTime: (now() - this.createdAt).toFixed(0),
+      didMountTime: parseInt((now() - this.createdAt).toFixed(0), 10),
     });
 
     const last = this.container.querySelector('div:last-child');

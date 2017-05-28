@@ -36,6 +36,7 @@ class Page extends React.Component {
       action: 'render',
       type: 'SAME_COMOPNENT',
       counter: this.state.auto ? ++this.state.counter : this.state.counter,
+      auto: this.state.auto && this.state.counter !== AUTO_RENDER_COUNT,
     });
   };
 
@@ -67,7 +68,7 @@ class Page extends React.Component {
           // setTimeout to show visual re-render
           setTimeout(() => {
             this.clearButton.click();
-          }, 1000);
+          });
         } else if (
           this.state.action === 'clear' ||
           this.state.action === 'autoRender'
@@ -75,7 +76,7 @@ class Page extends React.Component {
           // setTimeout to show visual re-render
           setTimeout(() => {
             this.renderButton.click();
-          }, 1000);
+          });
         }
       } else {
         this.setState({
