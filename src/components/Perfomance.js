@@ -4,6 +4,7 @@ import config from '../config';
 import ReactTooltip from 'react-tooltip';
 
 let metrics = [];
+const RENDER_STYLES_TIMEOUT_THRESHOLD = 500;
 
 class Perfomance extends Component {
   state = {
@@ -31,7 +32,7 @@ class Perfomance extends Component {
     setTimeout(() => {
       const didMountTime = parseInt(time, 10);
       const renderStylesTime = parseInt(
-        (now() - this.createdAt).toFixed(0),
+        (now() - this.createdAt - RENDER_STYLES_TIMEOUT_THRESHOLD).toFixed(0),
         10
       );
 
@@ -75,7 +76,7 @@ class Perfomance extends Component {
         console.log(metrics);
         metrics = [];
       }
-    });
+    }, RENDER_STYLES_TIMEOUT_THRESHOLD);
   }
 
   render() {
