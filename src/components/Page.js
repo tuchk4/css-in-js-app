@@ -49,7 +49,6 @@ class Page extends React.Component {
   onAutoRender = () => {
     this.setState({
       action: 'autoRender',
-      // type: 'SAME_COMOPNENT',
       auto: true,
     });
   };
@@ -68,7 +67,7 @@ class Page extends React.Component {
           // setTimeout to show visual re-render
           setTimeout(() => {
             this.clearButton.click();
-          }, 500);
+          }, 1000);
         } else if (
           this.state.action === 'clear' ||
           this.state.action === 'autoRender'
@@ -76,7 +75,7 @@ class Page extends React.Component {
           // setTimeout to show visual re-render
           setTimeout(() => {
             this.renderButton.click();
-          }, 500);
+          }, 1000);
         }
       } else {
         this.setState({

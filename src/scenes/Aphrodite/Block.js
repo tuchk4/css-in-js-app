@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import { StyleSheet, css } from 'aphrodite/no-important';
 
 import colors from '../../utils/colors';
@@ -17,29 +18,24 @@ const styles = {
       color: 'white',
     },
   },
-  primary: {},
 };
-
-for (let i = 0; i < colors.length; i++) {
-  styles[`block${i}`] = {
-    backgroundColor: colors[i][0],
-  };
-
-  styles[`primaryBlock${i}`] = {
-    backgroundColor: colors[i][1],
-  };
-}
 
 const sheet = StyleSheet.create(styles);
 
 const Block = ({ i, isPrimary, className, classes, children }) => {
-  const classList = css(
-    sheet.block,
-    sheet[`block${i}`],
-    isPrimary && [sheet[`primaryBlock${i}`]]
-  );
+  // There is no way to make dynamic styles with Aphrodite
+  // Only create stylesheets in components render method
+  const dynamicStyles = {
+    block: {
+      backgroundColor: isPrimary ? colors[i][1] : colors[i][0],
+    },
+  };
 
-  return <div className={`${classList} ${className}`}>{children}</div>;
+  const dynamicSheet = StyleSheet.create(dynamicStyles);
+
+  const classList = css(sheet.block, dynamicSheet.block);
+
+  return <div className={classnames(classList, className)}>{children}</div>;
 };
 
 export default Block;

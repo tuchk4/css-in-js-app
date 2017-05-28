@@ -7,6 +7,8 @@ export default class Block extends React.Component {
   };
 
   onMouseOver = () => {
+    this.props.onMouseOver();
+
     this.setState({
       hoverStyles: {
         backgroundColor: 'black',
@@ -16,6 +18,8 @@ export default class Block extends React.Component {
   };
 
   onMouseOut = () => {
+    this.props.onMouseOut();
+
     this.setState({
       hoverStyles: {},
     });
@@ -39,8 +43,8 @@ export default class Block extends React.Component {
           backgroundColor: props.isPrimary
             ? colors[props.i][1]
             : colors[props.i][0],
-          ...props.style,
           ...this.state.hoverStyles,
+          ...props.style,
         }}
       >
         {props.children}

@@ -34,6 +34,8 @@ const getCSS = (isPrimary, i) => {
 };
 
 const Block = ({ i, isPrimary, className, classes, children }) => {
+  // There is no way to make dynamic styles with glamor
+  // Only create css in components render method
   const backgroundRule = getCSS(isPrimary, i);
 
   return (
