@@ -2,9 +2,13 @@ import React from 'react';
 import Box, { ScrollView } from 'react-layout-components';
 import Perfomance from './Perfomance';
 
+const AUTO_RENDER_COUNT = 5;
+
 class Page extends React.Component {
   state = {
     type: null,
+    auto: false,
+    counter: 0,
     time: null,
     props: {
       children: 'Yo',
@@ -26,21 +30,49 @@ class Page extends React.Component {
   onRenderSameComponents = () => {
     this.setState({
       type: 'SAME_COMOPNENT',
+      auto: false,
     });
   };
 
   onRenderDifferentComponents = () => {
     this.setState({
       type: 'DIFFERENT_COMOPNENTS',
+      auto: false,
+    });
+  };
+
+  onAutoRender = () => {
+    this.setState({
+      type: 'SAME_COMOPNENT',
+      auto: true,
+      counter: ++this.state.counter,
     });
   };
 
   onClear = () => {
     this.setState({
       type: null,
-      time: null,
+      auto: false,
     });
   };
+
+  componentDidUpdate() {
+    if (this.state.auto) {
+      if (this.state.counter !== AUTO_RENDER_COUNT) {
+        setTimeout(() => {
+          this.onClear();
+          setTimeout(() => {
+            this.onAutoRender();
+          });
+        });
+      } else {
+        this.setState({
+          counter: 0,
+          auto: false,
+        });
+      }
+    }
+  }
 
   onPerfomanceDidMount = time => {
     this.setState({
@@ -158,6 +190,7 @@ class Page extends React.Component {
         <Provider>
           <Perfomance
             type={this.state.type}
+            collect={this.state.auto}
             component={this.state.block}
             components={this.state.differentBlocks}
             props={this.state.props}
@@ -168,6 +201,7 @@ class Page extends React.Component {
       return (
         <Perfomance
           type={this.state.type}
+          collect={this.state.auto}
           component={this.state.block}
           components={this.state.differentBlocks}
           props={this.state.props}
@@ -193,7 +227,9 @@ class Page extends React.Component {
       <ScrollView width="100%" flex={1}>
         <Box center className="controlls-space">
           <button
-            disabled={!this.state.block || this.state.type}
+            disabled={
+              !this.state.block || this.state.type || this.state.counter !== 0
+            }
             onClick={this.onRenderSameComponents}
           >
             Render 1000 same components
@@ -208,7 +244,9 @@ class Page extends React.Component {
           </a>
 
           <button
-            disabled={!this.state.block || this.state.type}
+            disabled={
+              !this.state.block || this.state.type || this.state.counter !== 0
+            }
             onClick={this.onRenderDifferentComponents}
           >
             Render 1000 different components
@@ -222,7 +260,19 @@ class Page extends React.Component {
             <i className="fa fa-file-code-o fa-1x" aria-hidden="true" />
           </a>
 
-          <button disabled={!this.state.type} onClick={this.onClear}>
+          <button
+            disabled={
+              !this.state.block || this.state.type || this.state.counter !== 0
+            }
+            onClick={this.onAutoRender}
+          >
+            Render {AUTO_RENDER_COUNT} times
+          </button>
+
+          <button
+            disabled={!this.state.type || this.state.counter !== 0}
+            onClick={this.onClear}
+          >
             Clear
           </button>
         </Box>

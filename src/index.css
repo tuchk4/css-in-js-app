@@ -42,6 +42,10 @@ body {
   font-size: 2em;
 }
 
+.empty-time-container {
+  display: none;
+}
+
 .time-container {
   display: flex;
   height: 50px;
@@ -50,15 +54,25 @@ body {
 
 .time {
   font-size: 1.5em;
-  font-weight: bold;
+
   color: #551a8b;
   margin-right: 25px;
 }
 
 .render-time {
   font-size: 1.5em;
-  font-weight: bold;
+
   color: #f53;
+}
+
+.time-container.first-render .time {
+  font-weight: bold;
+  color: #300656;
+}
+
+.time-container.first-render .render-time {
+  font-weight: bold;
+  color: #b51d00
 }
 
 .controlls-space {

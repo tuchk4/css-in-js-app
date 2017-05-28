@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-// import Perf from 'react-addons-perf';
 import now from 'performance-now';
 import config from '../config';
 import ReactTooltip from 'react-tooltip';
-// window.Perf = Perf;
+
+let metrics = [];
 
 class Perfomance extends Component {
   state = {
+    renderCount: 0,
+    renderTimes: [],
     time: null,
     renderTime: null,
   };
 
-  timeEl = null;
-  renderTimeEl = null;
+  didMountTimeEl = null;
+  renderStylesTimeEl = null;
+
+  firstDidMountTimeEl = null;
+  firstRenderStylesTimeEl = null;
+
+  showFirstRender = false;
 
   constructor(props) {
     super(props);
@@ -23,10 +30,49 @@ class Perfomance extends Component {
     const time = (now() - this.createdAt).toFixed(0);
 
     setTimeout(() => {
-      // using innerHTML to prevet re-render if use setState
-      if (this.timeEl && this.renderTimeEl) {
-        this.timeEl.innerHTML = `componentDidMount: ${time} ms`;
-        this.renderTimeEl.innerHTML = `Render time: ~${(now() - this.createdAt).toFixed(0)} ms`;
+      const didMountTime = parseInt(time, 10);
+      const renderStylesTime = parseInt(
+        (now() - this.createdAt).toFixed(0),
+        10
+      );
+
+      metrics.push({
+        didMountTime,
+        renderStylesTime,
+      });
+
+      if (!this.props.collect) {
+        let avarageDidMountTime = 0;
+        let avarageRenderStylesTime = 0;
+
+        metrics.forEach(({ didMountTime, renderStylesTime }) => {
+          avarageDidMountTime += didMountTime;
+          avarageRenderStylesTime += renderStylesTime;
+        });
+
+        // using innerHTML to prevet re-render if use setState
+        if (this.didMountTimeEl && this.renderStylesTimeEl) {
+          let prefix = '';
+
+          if (metrics.length > 1) {
+            prefix = 'Avarage  ';
+          }
+
+          this.didMountTimeEl.innerHTML = `${prefix} componentDidMount: ${(avarageDidMountTime / metrics.length).toFixed(0)} ms`;
+          this.renderStylesTimeEl.innerHTML = `${prefix} render styles: ~${(avarageRenderStylesTime / metrics.length).toFixed(0)} ms`;
+        }
+
+        if (
+          this.firstDidMountTimeEl &&
+          this.firstRenderStylesTimeEl &&
+          metrics.length > 1
+        ) {
+          this.firstDidMountTimeEl.innerHTML = `First componentDidMount: ${metrics[0].didMountTime} ms`;
+          this.firstRenderStylesTimeEl.innerHTML = `First render styles: ~${metrics[0].renderStylesTime} ms`;
+          this.showFirstRender = true;
+        }
+
+        metrics = [];
       }
     });
   }
@@ -53,10 +99,12 @@ class Perfomance extends Component {
 
     return (
       <div>
-        <div className="time-container">
-
+        <div
+          className={`${this.showFirstRender ? 'empty-time-container ' : ''}first-render time-container`}
+        >
           <div
-            ref={el => (this.timeEl = el ? el.querySelector('span') : null)}
+            ref={el =>
+              (this.firstDidMountTimeEl = el ? el.querySelector('span') : null)}
             className="time"
             data-tip="Time between component's constructor and comopnentDidMount"
           >
@@ -66,14 +114,37 @@ class Perfomance extends Component {
 
           <div
             ref={el =>
-              (this.renderTimeEl = el ? el.querySelector('span') : null)}
+              (this.firstRenderStylesTimeEl = el
+                ? el.querySelector('span')
+                : null)}
             className="render-time"
             data-tip="~ Time when all styles are rendered"
           >
             <span />
             <ReactTooltip place="top" type="dark" />
           </div>
+        </div>
 
+        <div className="time-container">
+          <div
+            ref={el =>
+              (this.didMountTimeEl = el ? el.querySelector('span') : null)}
+            className="time"
+            data-tip="Time between component's constructor and comopnentDidMount"
+          >
+            <span />
+            <ReactTooltip place="top" type="dark" />
+          </div>
+
+          <div
+            ref={el =>
+              (this.renderStylesTimeEl = el ? el.querySelector('span') : null)}
+            className="render-time"
+            data-tip="~ Time when all styles are rendered"
+          >
+            <span />
+            <ReactTooltip place="top" type="dark" />
+          </div>
         </div>
 
         {components}
