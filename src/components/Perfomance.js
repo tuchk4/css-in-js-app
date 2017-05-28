@@ -29,6 +29,7 @@ class Perfomance extends Component {
   componentDidMount() {
     const time = (now() - this.createdAt).toFixed(0);
 
+    // wait unitl all styles are injected (approximated time)
     setTimeout(() => {
       const didMountTime = parseInt(time, 10);
       const renderStylesTime = parseInt(
