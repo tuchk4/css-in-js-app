@@ -28,7 +28,7 @@
     "recompose": "^0.23.4",
     "rockey-react": "0.0.15-1",
     "styled-components": "^2.0.0",
-    "styled-jss": "^1.1.1",
+    "styled-jss": "^1.1.2",
     "styletron": "^2.5.7",
     "styletron-client": "^2.5.7",
     "styletron-react": "^2.5.8",

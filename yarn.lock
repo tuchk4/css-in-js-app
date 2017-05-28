@@ -6463,9 +6463,9 @@ styled-components@^2.0.0:
     stylis "^2.0.0"
     supports-color "^3.2.3"
 
-styled-jss@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/styled-jss/-/styled-jss-1.1.1.tgz#32c585e6c4f48c63bc53c440ba8ed877ce89cc88"
+styled-jss@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/styled-jss/-/styled-jss-1.1.2.tgz#bcfd4384741bc5e56c0e0394f148b2512591d560"
   dependencies:
     is-react-prop "^0.1.2"
     jss "^7.1.5"
