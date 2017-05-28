@@ -1,10 +1,10 @@
 import React from 'react';
+import classnames from 'classnames';
 import { injectSheet } from './jss';
 import colors from '../../utils/colors';
 
 const styles = {
   block: {
-    color: 'red',
     minWidth: '16px',
     height: '16px',
     display: 'inline-block',
@@ -22,7 +22,7 @@ const styles = {
 };
 
 const Block = ({ classes, className, children }) => {
-  return <div className={`${className} ${classes.block}`}>{children}</div>;
+  return <div className={classnames(className, classes.block)}>{children}</div>;
 };
 
 export default injectSheet(styles)(Block);

@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import colors from '../../utils/colors';
 import { injectSheet } from './jss';
 
@@ -18,7 +19,9 @@ const styles = {
 
 const Block = ({ i, isPrimary, classes, className, children }) => {
   return (
-    <div className={`${className} ${classes.block} ${classes.blockBackground}`}>
+    <div
+      className={classnames(className, classes.block, classes.blockBackground)}
+    >
       {children}
     </div>
   );

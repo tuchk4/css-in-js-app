@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import { css } from 'glamor';
 import colors from '../../utils/colors';
 
@@ -39,7 +40,13 @@ const Block = ({ i, isPrimary, className, classes, children }) => {
   const backgroundRule = getCSS(isPrimary, i);
 
   return (
-    <div className={`${className} ${blockRule} ${backgroundRule}`}>
+    <div
+      className={classnames(
+        className,
+        blockRule.toString(),
+        backgroundRule.toString()
+      )}
+    >
       {children}
     </div>
   );

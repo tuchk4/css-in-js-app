@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "aphrodite": "^1.2.1",
+    "classnames": "^2.2.5",
     "fela": "^4.3.5",
     "fela-dom": "^4.3.5",
     "fela-monolithic": "^4.3.2",

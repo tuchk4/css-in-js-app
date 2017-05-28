@@ -14,7 +14,7 @@ export default () => {
       Provider={({ children }) => {
         if (!renderer) {
           renderer = createRenderer({
-            selectorPrefix: 'cij_',
+            selectorPrefix: '__',
           });
 
           mountNode = document.createElement('style');
