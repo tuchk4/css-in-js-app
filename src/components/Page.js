@@ -102,6 +102,9 @@ class Page extends React.Component {
           <p>
             NOTE that this is not the real benchmark but it shows the differents between CSS in JS liraries and approaches under the same conditions. In this app the accent was made on dynamic CSS that depends on component props.
           </p>
+          <p className="highlite">
+            All libraries are used with React. So resulted time also includes React render cycle.
+          </p>
           <p>
             Each library has different features and possibilities.
           </p>
@@ -129,6 +132,20 @@ class Page extends React.Component {
             </a>
             {' '}
             to define CSS.
+          </p>
+          <p className="highlite">
+            If render components again after
+            {' '}
+            <i>"CLEAR"</i>
+            {' '}
+            and resulted time is lesser this means that library uses cached styles.
+          </p>
+          <p className="highlite">
+            For example try styled-components. Second render is faster in
+            {' '}
+            <b>~25</b>
+            {' '}
+            times.
           </p>
         </div>
       );

@@ -4,13 +4,17 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.highlite {
+  background: rgba(255, 230, 0, 0.33);
+}
+
 .info-block {
-  margin: 100px auto;
+  margin: 25px auto;
   text-align: center;
 }
 
 .info-block p {
-  width: 600px;
+  width: 650px;
   font-size: 1.2em;
   line-height: 1.5em;
   text-align: left;
