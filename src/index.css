@@ -43,13 +43,21 @@ body {
 }
 
 .empty-time-container {
-  display: none;
+  display: none !important;
+}
+
+.time-container + .time-container {
+  margin-top: 10px;
 }
 
 .time-container {
   display: flex;
-  height: 50px;
+  /*height: 50px;*/
   justify-content: center;
+}
+
+.components {
+  margin-top: 10px;
 }
 
 .time {

@@ -19,8 +19,6 @@ class Perfomance extends Component {
   firstDidMountTimeEl = null;
   firstRenderStylesTimeEl = null;
 
-  showFirstRender = false;
-
   constructor(props) {
     super(props);
     this.createdAt = now();
@@ -73,6 +71,8 @@ class Perfomance extends Component {
           this.showFirstRender = true;
         }
 
+        console.log(this.showFirstRender);
+        console.log(metrics);
         metrics = [];
       }
     });
@@ -100,9 +100,7 @@ class Perfomance extends Component {
 
     return (
       <div>
-        <div
-          className={`${this.showFirstRender ? 'empty-time-container ' : ''}first-render time-container`}
-        >
+        <div className="first-render time-container">
           <div
             ref={el =>
               (this.firstDidMountTimeEl = el ? el.querySelector('span') : null)}
@@ -148,7 +146,9 @@ class Perfomance extends Component {
           </div>
         </div>
 
-        {components}
+        <div className="components">
+          {components}
+        </div>
       </div>
     );
   }

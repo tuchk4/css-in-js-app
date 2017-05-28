@@ -6,6 +6,7 @@ const AUTO_RENDER_COUNT = 5;
 
 class Page extends React.Component {
   state = {
+    action: null,
     type: null,
     auto: false,
     counter: 0,
@@ -21,6 +22,9 @@ class Page extends React.Component {
   input = null;
   checkbox = null;
 
+  clearButton = null;
+  renderButton = null;
+
   componentDidMount() {
     this.props.load(({ block, differentBlocks }) => {
       this.setState({ block, differentBlocks });
@@ -29,42 +33,51 @@ class Page extends React.Component {
 
   onRenderSameComponents = () => {
     this.setState({
+      action: 'render',
       type: 'SAME_COMOPNENT',
-      auto: false,
+      counter: this.state.auto ? ++this.state.counter : this.state.counter,
     });
   };
 
   onRenderDifferentComponents = () => {
     this.setState({
+      action: 'render',
       type: 'DIFFERENT_COMOPNENTS',
-      auto: false,
     });
   };
 
   onAutoRender = () => {
     this.setState({
-      type: 'SAME_COMOPNENT',
+      action: 'autoRender',
+      // type: 'SAME_COMOPNENT',
       auto: true,
-      counter: ++this.state.counter,
     });
   };
 
   onClear = () => {
     this.setState({
+      action: 'clear',
       type: null,
-      auto: false,
     });
   };
 
   componentDidUpdate() {
     if (this.state.auto) {
       if (this.state.counter !== AUTO_RENDER_COUNT) {
-        setTimeout(() => {
-          this.onClear();
+        if (this.state.action === 'render') {
+          // setTimeout to show visual re-render
           setTimeout(() => {
-            this.onAutoRender();
-          });
-        });
+            this.clearButton.click();
+          }, 500);
+        } else if (
+          this.state.action === 'clear' ||
+          this.state.action === 'autoRender'
+        ) {
+          // setTimeout to show visual re-render
+          setTimeout(() => {
+            this.renderButton.click();
+          }, 500);
+        }
       } else {
         this.setState({
           counter: 0,
@@ -116,8 +129,6 @@ class Page extends React.Component {
       </Box>
     );
   }
-
-  renderPerf() {}
 
   renderPage() {
     if (!this.state.type) {
@@ -227,9 +238,8 @@ class Page extends React.Component {
       <ScrollView width="100%" flex={1}>
         <Box center className="controlls-space">
           <button
-            disabled={
-              !this.state.block || this.state.type || this.state.counter !== 0
-            }
+            ref={el => (this.renderButton = el)}
+            disabled={!this.state.block || this.state.type}
             onClick={this.onRenderSameComponents}
           >
             Render 1000 same components
@@ -244,9 +254,7 @@ class Page extends React.Component {
           </a>
 
           <button
-            disabled={
-              !this.state.block || this.state.type || this.state.counter !== 0
-            }
+            disabled={!this.state.block || this.state.type}
             onClick={this.onRenderDifferentComponents}
           >
             Render 1000 different components
@@ -261,16 +269,15 @@ class Page extends React.Component {
           </a>
 
           <button
-            disabled={
-              !this.state.block || this.state.type || this.state.counter !== 0
-            }
+            disabled={!this.state.block || this.state.type}
             onClick={this.onAutoRender}
           >
             Render {AUTO_RENDER_COUNT} times
           </button>
 
           <button
-            disabled={!this.state.type || this.state.counter !== 0}
+            ref={el => (this.clearButton = el)}
+            disabled={!this.state.type}
             onClick={this.onClear}
           >
             Clear
