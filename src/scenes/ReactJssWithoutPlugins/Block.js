@@ -1,15 +1,6 @@
 import React from 'react';
-
-import { create as createJss } from 'jss';
-import { create as createInjectSheet } from 'react-jss';
-import jssCompose from 'jss-compose';
-
 import colors from '../../utils/colors';
-
-const jss = createJss();
-jss.use(jssCompose());
-
-const injectSheet = createInjectSheet(jss);
+import { injectSheet } from './jss';
 
 const styles = {
   block: {

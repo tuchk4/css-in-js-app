@@ -1,5 +1,5 @@
 import React from 'react';
-import injectSheet from 'react-jss';
+import { injectSheet } from './jss';
 import config from '../../config';
 import colors from '../../utils/colors';
 import Block from './Block';

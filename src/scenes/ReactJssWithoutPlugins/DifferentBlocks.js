@@ -1,7 +1,7 @@
 import React from 'react';
-import injectSheet from 'react-jss';
 import config from '../../config';
 import colors from '../../utils/colors';
+import { injectSheet } from './jss';
 import Block from './Block';
 
 const components = [];
@@ -12,12 +12,12 @@ for (let i = 0; i < config.size; i++) {
   const styles = {
     block: {
       border: `${size + 2}px solid #000`,
-      borderRadius: `${size * 6}px`,
-      borderColor: props =>
+      'border-radius': `${size * 6}px`,
+      'border-color': props =>
         props.isPrimary ? colors[props.i][0] : colors[props.i][1],
       '&:hover': {
-        backgroundColor: 'white !important',
-        borderColor: 'black !important',
+        'background-color': 'white !important',
+        'border-color': 'black !important',
         color: 'black',
       },
     },

@@ -1,15 +1,10 @@
 import React from 'react';
-import { create as createJss } from 'jss';
-import { create as createInjectSheet } from 'react-jss';
-import preset from 'jss-preset-default';
-
+import { injectSheet } from './jss';
 import colors from '../../utils/colors';
-
-const jss = createJss(preset());
-const injectSheet = createInjectSheet(jss);
 
 const styles = {
   block: {
+    color: 'red',
     minWidth: '16px',
     height: '16px',
     display: 'inline-block',
