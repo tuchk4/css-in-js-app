@@ -58,7 +58,7 @@ class Perfomance extends Component {
             prefix = 'Avarage  ';
           }
 
-          this.didMountTimeEl.innerHTML = `${prefix} componentDidMount: ${(avarageDidMountTime / metrics.length).toFixed(0)} ms`;
+          this.didMountTimeEl.innerHTML = `${prefix} did mount: ${(avarageDidMountTime / metrics.length).toFixed(0)} ms`;
           this.renderStylesTimeEl.innerHTML = `${prefix} render styles: ~${(avarageRenderStylesTime / metrics.length).toFixed(0)} ms`;
         }
 
@@ -67,7 +67,7 @@ class Perfomance extends Component {
           this.firstRenderStylesTimeEl &&
           metrics.length > 1
         ) {
-          this.firstDidMountTimeEl.innerHTML = `First componentDidMount: ${metrics[0].didMountTime} ms`;
+          this.firstDidMountTimeEl.innerHTML = `First did mount: ${metrics[0].didMountTime} ms`;
           this.firstRenderStylesTimeEl.innerHTML = `First render styles: ~${metrics[0].renderStylesTime} ms`;
           this.showFirstRender = true;
         }
