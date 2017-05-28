@@ -26,7 +26,7 @@
     "react-router-dom": "^4.0.0",
     "react-tooltip": "^3.3.0",
     "recompose": "^0.23.4",
-    "rockey-react": "=0.0.13-alpha.93ab2aca",
+    "rockey-react": "0.0.14-alpha.fa05b467",
     "styled-components": "^2.0.0",
     "styled-jss": "^1.0.1",
     "styletron": "^2.5.7",
