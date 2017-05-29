@@ -10,7 +10,8 @@ for (let i = 0; i < config.size; i++) {
 
   const component = createComponent(
     props => ({
-      border: `${size + 2}px solid #000`,
+      borderSize: `${size + 2}px `,
+      borderStyle: 'solid',
       borderRadius: `${size * 6}px`,
       borderColor: props.isPrimary ? colors[props.i][0] : colors[props.i][1],
       '&:hover': {

@@ -30,11 +30,12 @@ export default () => {
         );
       }}
       load={onLoad => {
-        require.ensure(['./Block', './DifferentBlocks'], () => {
+        require.ensure(['./Block', './DifferentBlocks', './Probe'], () => {
           const block = require('./Block').default;
           const differentBlocks = require('./DifferentBlocks').default;
+          const probe = require('./Probe').default;
 
-          onLoad({ block, differentBlocks });
+          onLoad({ block, differentBlocks, probe });
         });
       }}
     />

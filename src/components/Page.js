@@ -26,14 +26,13 @@ class Page extends React.Component {
   renderButton = null;
 
   componentDidMount() {
-    this.props.load(({ block, differentBlocks }) => {
-      this.setState({ block, differentBlocks });
+    this.props.load(({ block, differentBlocks, probe }) => {
+      this.setState({ block, differentBlocks, probe });
     });
   }
 
   onRenderSameComponents = () => {
     this.setState({
-      action: 'render',
       type: 'SAME_COMOPNENT',
       counter: this.state.auto ? ++this.state.counter : this.state.counter,
       auto: this.state.auto && this.state.counter !== AUTO_RENDER_COUNT,
@@ -42,42 +41,33 @@ class Page extends React.Component {
 
   onRenderDifferentComponents = () => {
     this.setState({
-      action: 'render',
       type: 'DIFFERENT_COMOPNENTS',
     });
   };
 
   onAutoRender = () => {
     this.setState({
-      action: 'autoRender',
+      type: 'SAME_COMOPNENT',
       auto: true,
     });
   };
 
   onClear = () => {
     this.setState({
-      action: 'clear',
       type: null,
     });
   };
 
-  componentDidUpdate() {
+  onAnimationStart = () => {
     if (this.state.auto) {
       if (this.state.counter !== AUTO_RENDER_COUNT) {
-        if (this.state.action === 'render') {
-          // setTimeout to show visual re-render
-          setTimeout(() => {
-            this.clearButton.click();
-          });
-        } else if (
-          this.state.action === 'clear' ||
-          this.state.action === 'autoRender'
-        ) {
-          // setTimeout to show visual re-render
+        setTimeout(() => {
+          this.clearButton.click();
+
           setTimeout(() => {
             this.renderButton.click();
-          });
-        }
+          }, 10);
+        }, 10);
       } else {
         this.setState({
           counter: 0,
@@ -85,7 +75,7 @@ class Page extends React.Component {
         });
       }
     }
-  }
+  };
 
   onPerfomanceDidMount = time => {
     this.setState({
@@ -200,10 +190,12 @@ class Page extends React.Component {
       return (
         <Provider>
           <Perfomance
+            onAnimationStart={this.onAnimationStart}
             type={this.state.type}
             collect={this.state.auto}
             component={this.state.block}
             components={this.state.differentBlocks}
+            probe={this.state.probe}
             props={this.state.props}
           />
         </Provider>
@@ -211,10 +203,12 @@ class Page extends React.Component {
     } else {
       return (
         <Perfomance
+          onAnimationStart={this.onAnimationStart}
           type={this.state.type}
           collect={this.state.auto}
           component={this.state.block}
           components={this.state.differentBlocks}
+          probe={this.state.probe}
           props={this.state.props}
         />
       );

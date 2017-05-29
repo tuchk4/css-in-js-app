@@ -26,6 +26,7 @@ import StyledComponents from './scenes/StyledComponents';
 
 import './menu.css';
 import './index.css';
+import './probe.css';
 
 window.Perf = Perf;
 

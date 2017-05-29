@@ -7,7 +7,7 @@ export default class Block extends React.Component {
   };
 
   onMouseOver = () => {
-    this.props.onMouseOver();
+    this.props.onMouseOver && this.props.onMouseOver();
 
     this.setState({
       hoverStyles: {
@@ -18,7 +18,7 @@ export default class Block extends React.Component {
   };
 
   onMouseOut = () => {
-    this.props.onMouseOut();
+    this.props.onMouseOut && this.props.onMouseOut();
 
     this.setState({
       hoverStyles: {},

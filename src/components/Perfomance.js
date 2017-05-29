@@ -3,7 +3,10 @@ import now from 'performance-now';
 import config from '../config';
 import ReactTooltip from 'react-tooltip';
 
-let metrics = [];
+let metrics = {
+  onAnimationStart: [],
+  didMount: [],
+};
 
 class Perfomance extends Component {
   state = {
@@ -13,52 +16,75 @@ class Perfomance extends Component {
     renderTime: null,
   };
 
-  didMountTimeEl = null;
-  renderStylesTimeEl = null;
+  animationEl = null;
+  didMountEl = null;
 
-  firstDidMountTimeEl = null;
-  firstRenderStylesTimeEl = null;
+  firstAnimationEl = null;
+  firstDidMountEl = null;
+
+  noStylesEl = null;
 
   constructor(props) {
     super(props);
     this.createdAt = now();
   }
 
-  componentDidMount() {
-    metrics.push({
-      didMountTime: parseInt((now() - this.createdAt).toFixed(0), 10),
-    });
+  onAnimationStart() {
+    this.props.onAnimationStart();
 
-    const last = this.container.querySelector('div:last-child');
-    const height = getComputedStyle(last).height;
-
-    if (height !== '16px') {
-      this.noStylesEl.style.display = 'block';
-    }
+    metrics.onAnimationStart.push(
+      parseInt((now() - this.createdAt).toFixed(0), 10)
+    );
 
     if (!this.props.collect) {
-      let avarageDidMountTime = 0;
+      let animationAverage = 0;
+      let didMountverage = 0;
 
-      metrics.forEach(({ didMountTime }) => {
-        avarageDidMountTime += didMountTime;
+      metrics.onAnimationStart.forEach(t => {
+        animationAverage += t;
+      });
+
+      metrics.didMount.forEach(t => {
+        didMountverage += t;
       });
 
       // using innerHTML to prevet re-render if use setState
-      if (this.didMountTimeEl) {
+      if (this.animationEl) {
         let prefix = '';
 
         if (metrics.length > 1) {
           prefix = 'Avarage  ';
         }
 
-        this.didMountTimeEl.innerHTML = `${prefix} did mount: ${(avarageDidMountTime / metrics.length).toFixed(0)} ms`;
+        const size = metrics.didMount.length;
+
+        this.didMountEl.innerHTML = `${prefix} did mount: ${(didMountverage / size).toFixed(0)} ms`;
+        this.animationEl.innerHTML = `${prefix} total: ${(animationAverage / size).toFixed(0)} ms`;
       }
 
-      if (this.firstDidMountTimeEl && metrics.length > 1) {
-        this.firstDidMountTimeEl.innerHTML = `First did mount: ${metrics[0].didMountTime} ms`;
+      if (this.firstDidMountEl && metrics.onAnimationStart.length > 1) {
+        this.firstDidMountEl.innerHTML = `First did mount: ${metrics.didMount[0]} ms`;
+        this.firstAnimationEl.innerHTML = `First total: ${metrics.onAnimationStart[0]} ms`;
       }
 
-      metrics = [];
+      metrics = {
+        didMount: [],
+        onAnimationStart: [],
+      };
+    }
+  }
+
+  componentDidMount() {
+    metrics.didMount.push(parseInt((now() - this.createdAt).toFixed(0), 10));
+
+    const children = this.container.querySelectorAll('div');
+    // last is s Probe component
+    const beforeLast = children[children.length - 2];
+
+    const height = getComputedStyle(beforeLast).height;
+
+    if (height !== '16px') {
+      this.noStylesEl.style.display = 'block';
     }
   }
 
@@ -94,9 +120,19 @@ class Perfomance extends Component {
         <div className="first-render time-container">
           <div
             ref={el =>
-              (this.firstDidMountTimeEl = el ? el.querySelector('span') : null)}
+              (this.firstDidMountEl = el ? el.querySelector('span') : null)}
             className="time"
             data-tip="Time between component's constructor and comopnentDidMount"
+          >
+            <span />
+            <ReactTooltip place="top" type="dark" />
+          </div>
+
+          <div
+            ref={el =>
+              (this.firstAnimationEl = el ? el.querySelector('span') : null)}
+            className="time render-time"
+            data-tip="Time when all styles were rendered"
           >
             <span />
             <ReactTooltip place="top" type="dark" />
@@ -105,10 +141,19 @@ class Perfomance extends Component {
 
         <div className="time-container">
           <div
-            ref={el =>
-              (this.didMountTimeEl = el ? el.querySelector('span') : null)}
+            ref={el => (this.didMountEl = el ? el.querySelector('span') : null)}
             className="time"
             data-tip="Time between component's constructor and comopnentDidMount"
+          >
+            <span />
+            <ReactTooltip place="top" type="dark" />
+          </div>
+
+          <div
+            ref={el =>
+              (this.animationEl = el ? el.querySelector('span') : null)}
+            className="time render-time"
+            data-tip="Time when all styles were rendered"
           >
             <span />
             <ReactTooltip place="top" type="dark" />
@@ -117,6 +162,11 @@ class Perfomance extends Component {
 
         <div className="components" ref={el => (this.container = el)}>
           {components}
+          {React.createElement(this.props.probe, {
+            onAnimationStart: () => {
+              this.onAnimationStart();
+            },
+          })}
         </div>
       </div>
     );

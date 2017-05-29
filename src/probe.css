@@ -1,0 +1,9 @@
+@keyframes global-probe {
+  from {
+    color: red;
+  }
+
+  to {
+    color: blue;
+  }
+}
