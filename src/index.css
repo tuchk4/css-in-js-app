@@ -43,6 +43,10 @@ body {
   display: flex;
 }
 
+.example-space.animation-scene {
+  height: 500px;
+}
+
 .example-space {
   padding: 25px;
   position: relative;;

@@ -24,6 +24,10 @@ import FelaMonolithic from './scenes/FelaMonolithic';
 
 import StyledComponents from './scenes/StyledComponents';
 
+import RockeyAnimations from './scenes-animations/Rockey';
+import ReactJSSAnimations from './scenes-animations/ReactJSS';
+import StyledJSSAnimations from './scenes-animations/StyledJSS';
+
 import './menu.css';
 import './index.css';
 import './probe.css';
@@ -136,6 +140,22 @@ ReactDOM.render(
               component={StyledComponents}
             />
             <Route exact path="/react-inline" component={ReactInline} />
+
+            <Route
+              exact
+              path="/rockey-react-animations"
+              component={RockeyAnimations}
+            />
+            <Route
+              exact
+              path="/react-jss-animations"
+              component={ReactJSSAnimations}
+            />
+            <Route
+              exact
+              path="/styled-jss-animations"
+              component={StyledJSSAnimations}
+            />
           </Switch>
         </HashRouter>
       </div>
