@@ -1,5 +1,7 @@
 # Css in JS App
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tuchk4/css-in-js-app.svg)](https://greenkeeper.io/)
+
 ### [tuchk4.github.io/css-in-js-app](https://tuchk4.github.io/css-in-js-app)
 
 There is React application with implemented different css-in-js approaches:
