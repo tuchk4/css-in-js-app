@@ -4,14 +4,15 @@
 
 There is React application with implemented different css-in-js approaches:
 
-- [rockey](https://github.com/tuchk4/rockey)
-- [Glamor](https://github.com/threepointone/glamor)
-- [Fela](https://github.com/rofrischmann/fela)
 - [Aphrodite](https://github.com/Khan/aphrodite)
+- [Emotion](https://github.com/emotion-js/emotion)
+- [Fela](https://github.com/rofrischmann/fela)
+- [Glamor](https://github.com/threepointone/glamor)
+- [glamorous](https://github.com/paypal/glamorous)
 - [JSS](https://github.com/cssinjs/jss)
+- [rockey](https://github.com/tuchk4/rockey)
 - [styled-components](https://github.com/styled-components/styled-components)
 - [styletron](https://github.com/rtsao/styletron)
-- [glamorous](https://github.com/paypal/glamorous)
 - and example with React inline styles
 
 Each bundle is lazy initializing (so for better results update page before test to keep initialized only current bundle). Also
