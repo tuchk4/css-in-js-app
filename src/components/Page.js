@@ -1,5 +1,6 @@
 import React from 'react';
 import Box, { ScrollView } from 'react-layout-components';
+import config from '../config';
 import Perfomance from './Perfomance';
 
 const AUTO_RENDER_COUNT = 5;
@@ -236,7 +237,7 @@ class Page extends React.Component {
             disabled={!this.state.block || this.state.type}
             onClick={this.onRenderSameComponents}
           >
-            Render 1000 same components
+            Render {config.size} same components
           </button>
 
           <a
@@ -251,7 +252,7 @@ class Page extends React.Component {
             disabled={!this.state.block || this.state.type}
             onClick={this.onRenderDifferentComponents}
           >
-            Render 1000 different components
+            Render {config.size} different components
           </button>
 
           <a
