@@ -18,7 +18,7 @@ There is React application with implemented different css-in-js approaches:
 Each bundle is lazy initializing (so for better results update page before test to keep initialized only current bundle). Also
 there are:
 
-- Timers for rendering 10000 same components and 10000 different components with styles defined in JS.
+- Timers for rendering 4000 same components and 4000 different components with styles defined in JS.
 - Checkbox to switch `primary` property
 - Input to change text
 - Links to source code of each bundle
