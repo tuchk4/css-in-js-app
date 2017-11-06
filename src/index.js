@@ -9,6 +9,7 @@ import Box, { Page } from 'react-layout-components';
 import Aphrodite from './scenes/Aphrodite';
 import Glamorous from './scenes/Glamorous';
 import Styletron from './scenes/Styletron';
+import Emotion from './scenes/Emotion';
 
 import ReactJss from './scenes/ReactJss';
 import ReactJssWithoutPlugins from './scenes/ReactJssWithoutPlugins';
@@ -32,8 +33,25 @@ window.Perf = Perf;
 
 const content = [
   {
-    label: 'Rockey',
-    to: '#/rockey-react',
+    label: 'Aphrodite',
+    to: '#/aphrodite',
+  },
+  {
+    label: 'Emotion',
+    to: '#/emotion',
+  },
+  {
+    label: 'Fela',
+    content: [
+      {
+        label: 'react-fela',
+        to: '#/react-fela',
+      },
+      {
+        label: 'react-fela monolithic',
+        to: '#/react-fela-monolithic',
+      },
+    ],
   },
   {
     label: 'Glamor',
@@ -42,14 +60,6 @@ const content = [
   {
     label: 'Glamorous',
     to: '#/glamorous',
-  },
-  {
-    label: 'Styletron',
-    to: '#/styletron',
-  },
-  {
-    label: 'Aphrodite',
-    to: '#/aphrodite',
   },
   {
     label: 'JSS',
@@ -69,17 +79,12 @@ const content = [
     ],
   },
   {
-    label: 'Fela',
-    content: [
-      {
-        label: 'react-fela',
-        to: '#/react-fela',
-      },
-      {
-        label: 'react-fela monolithic',
-        to: '#/react-fela-monolithic',
-      },
-    ],
+    label: 'Rockey',
+    to: '#/rockey-react',
+  },
+  {
+    label: 'Styletron',
+    to: '#/styletron',
   },
   {
     label: 'styled-components',
@@ -115,6 +120,7 @@ ReactDOM.render(
             <Route exact path="/styletron" component={Styletron} />
 
             <Route exact path="/aphrodite" component={Aphrodite} />
+            <Route exact path="/emotion" component={Emotion} />
 
             <Route exact path="/react-jss" component={ReactJss} />
             <Route
