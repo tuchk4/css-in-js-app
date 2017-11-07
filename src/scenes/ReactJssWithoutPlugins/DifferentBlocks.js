@@ -7,7 +7,7 @@ import Block from './Block';
 const components = [];
 
 for (let i = 0; i < config.size; i++) {
-  let size = Math.round(i / 10 % 1 * 10);
+  let size = Math.round(((i / 10) % 1) * 10);
 
   const styles = {
     block: {
@@ -24,7 +24,11 @@ for (let i = 0; i < config.size; i++) {
   };
 
   const component = injectSheet(styles)(({ classes, children, ...props }) => {
-    return <Block className={classes.block} {...props}>{children}</Block>;
+    return (
+      <Block className={classes.block} {...props}>
+        {children}
+      </Block>
+    );
   });
 
   components.push(component);

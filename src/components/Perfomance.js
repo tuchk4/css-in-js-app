@@ -58,19 +58,21 @@ class Perfomance extends Component {
 
         const size = metrics.didMount.length;
 
-        this.didMountEl.innerHTML = `${prefix} did mount: ${(didMountverage /
-          size
+        this.didMountEl.innerHTML = `${prefix} did mount: ${(
+          didMountverage / size
         ).toFixed(0)} ms`;
-        this.animationEl.innerHTML = `${prefix} total: ${(animationAverage /
-          size
+        this.animationEl.innerHTML = `${prefix} total: ${(
+          animationAverage / size
         ).toFixed(0)} ms`;
       }
 
       if (this.firstDidMountEl && metrics.onAnimationStart.length > 1) {
-        this.firstDidMountEl.innerHTML = `First did mount: ${metrics
-          .didMount[0]} ms`;
-        this.firstAnimationEl.innerHTML = `First total: ${metrics
-          .onAnimationStart[0]} ms`;
+        this.firstDidMountEl.innerHTML = `First did mount: ${
+          metrics.didMount[0]
+        } ms`;
+        this.firstAnimationEl.innerHTML = `First total: ${
+          metrics.onAnimationStart[0]
+        } ms`;
       }
 
       metrics = {
@@ -128,7 +130,8 @@ class Perfomance extends Component {
         <div className="first-render time-container">
           <div
             ref={el =>
-              (this.firstDidMountEl = el ? el.querySelector('span') : null)}
+              (this.firstDidMountEl = el ? el.querySelector('span') : null)
+            }
             className="time"
             data-tip="Time between component's constructor and comopnentDidMount"
           >
@@ -138,7 +141,8 @@ class Perfomance extends Component {
 
           <div
             ref={el =>
-              (this.firstAnimationEl = el ? el.querySelector('span') : null)}
+              (this.firstAnimationEl = el ? el.querySelector('span') : null)
+            }
             className="time render-time"
             data-tip="Time when all styles were rendered"
           >
@@ -159,7 +163,8 @@ class Perfomance extends Component {
 
           <div
             ref={el =>
-              (this.animationEl = el ? el.querySelector('span') : null)}
+              (this.animationEl = el ? el.querySelector('span') : null)
+            }
             className="time render-time"
             data-tip="Time when all styles were rendered"
           >
