@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import Perf from 'react-addons-perf';
+// import Perf from 'react-addons-perf';
 import MetisMenu from 'react-metismenu';
 import Box, { Page } from 'react-layout-components';
 
@@ -29,7 +29,7 @@ import './menu.css';
 import './index.css';
 import './probe.css';
 
-window.Perf = Perf;
+// window.Perf = Perf;
 
 const content = [
   {

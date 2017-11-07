@@ -1,5 +1,5 @@
 import React from 'react';
-import { injectSheet } from './jss';
+import injectSheet from 'react-jss';
 
 const styles = {
   '@keyframes jss-probe-animation': {

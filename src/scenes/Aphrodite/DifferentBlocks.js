@@ -8,7 +8,7 @@ import Block from './Block';
 const components = [];
 
 for (let i = 0; i < config.size; i++) {
-  let size = Math.round(i / 10 % 1 * 10);
+  let size = Math.round(((i / 10) % 1) * 10);
 
   const sheet = StyleSheet.create({
     block: {
@@ -32,7 +32,11 @@ for (let i = 0; i < config.size; i++) {
     const dynamicSheet = StyleSheet.create(dynamicStyles);
 
     const classlList = css(sheet.block, dynamicSheet.block);
-    return <Block className={classlList} {...props}>{children}</Block>;
+    return (
+      <Block className={classlList} {...props}>
+        {children}
+      </Block>
+    );
   };
 
   components.push(component);

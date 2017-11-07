@@ -96,9 +96,7 @@ class Page extends React.Component {
   renderControlls() {
     return (
       <Box className="controlls-space controlls-inputs">
-        <Box>
-          Component props:
-        </Box>
+        <Box>Component props:</Box>
         <Box>
           <input
             className="Checkbox"
@@ -107,7 +105,9 @@ class Page extends React.Component {
             checked={this.state.props.isPrimary}
             onChange={e => this.onFormChange('isPrimary', e.target.checked)}
           />
-          <label className="CheckboxLabel" htmlFor="Primary">Primary</label>
+          <label className="CheckboxLabel" htmlFor="Primary">
+            Primary
+          </label>
         </Box>
         <Box>
           <input
@@ -134,17 +134,18 @@ class Page extends React.Component {
             github.com/tuchk4/css-in-js-app
           </a>
           <p>
-            NOTE that this is not the real benchmark but it shows the differents between CSS in JS liraries and approaches under the same conditions. In this app the accent was made on dynamic CSS that depends on component props.
+            NOTE that this is not the real benchmark but it shows the differents
+            between CSS in JS libraries and approaches under the same
+            conditions. In this app the accent was made on dynamic CSS that
+            depends on component props.
           </p>
           <p className="highlite">
-            All libraries are used with React. So resulted time also includes React render cycle.
+            All libraries are used with React. So resulted time also includes
+            React render cycle.
           </p>
+          <p>Each library has different features and possibilities.</p>
           <p>
-            Each library has different features and possibilities.
-          </p>
-          <p>
-            For example fela and styletron uses
-            {' '}
+            For example fela and styletron uses{' '}
             <a
               href="https://ryantsao.com/blog/virtual-css-with-styletron"
               target="_blank"
@@ -155,31 +156,23 @@ class Page extends React.Component {
             .
           </p>
           <p>
-            styled-components and rockey uses
-            {' '}
+            styled-components and rockey uses{' '}
             <a
               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
               target="_blank"
               rel="noopener noreferrer"
             >
               template literals
-            </a>
-            {' '}
+            </a>{' '}
             to define CSS.
           </p>
           <p className="highlite">
-            If render components again after
-            {' '}
-            <i>"CLEAR"</i>
-            {' '}
-            and resulted time is lesser this means that library uses cached styles.
+            If render components again after <i>"CLEAR"</i> and resulted time is
+            lesser this means that library uses cached styles.
           </p>
           <p className="highlite">
-            For example try styled-components. Second render is faster in
-            {' '}
-            <b>~25</b>
-            {' '}
-            times.
+            For example try styled-components. Second render is faster in{' '}
+            <b>~25</b> times.
           </p>
         </div>
       );
@@ -218,12 +211,8 @@ class Page extends React.Component {
   renderLoader() {
     return (
       <div className="loading">
-        <p>
-          Loading...
-        </p>
-        <p>
-          Assynchronous bundle downloading and its initialization.
-        </p>
+        <p>Loading...</p>
+        <p>Assynchronous bundle downloading and its initialization.</p>
       </div>
     );
   }
@@ -241,7 +230,9 @@ class Page extends React.Component {
           </button>
 
           <a
-            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title}/Block.js`}
+            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${
+              this.props.title
+            }/Block.js`}
             target="blank"
             className="soruce-link"
           >
@@ -256,7 +247,9 @@ class Page extends React.Component {
           </button>
 
           <a
-            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${this.props.title}/DifferentBlocks.js`}
+            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${
+              this.props.title
+            }/DifferentBlocks.js`}
             target="blank"
             className="soruce-link"
           >
@@ -279,14 +272,15 @@ class Page extends React.Component {
           </button>
         </Box>
         <Box center className="gh-link-block">
-          {this.props.github &&
+          {this.props.github && (
             <a
               target="blank"
               className="gh-link"
               href={`https://github.com/${this.props.github}`}
             >
               gh: {this.props.github}
-            </a>}
+            </a>
+          )}
         </Box>
 
         {this.state.type && this.renderControlls()}

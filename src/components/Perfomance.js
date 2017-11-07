@@ -58,13 +58,19 @@ class Perfomance extends Component {
 
         const size = metrics.didMount.length;
 
-        this.didMountEl.innerHTML = `${prefix} did mount: ${(didMountverage / size).toFixed(0)} ms`;
-        this.animationEl.innerHTML = `${prefix} total: ${(animationAverage / size).toFixed(0)} ms`;
+        this.didMountEl.innerHTML = `${prefix} did mount: ${(didMountverage /
+          size
+        ).toFixed(0)} ms`;
+        this.animationEl.innerHTML = `${prefix} total: ${(animationAverage /
+          size
+        ).toFixed(0)} ms`;
       }
 
       if (this.firstDidMountEl && metrics.onAnimationStart.length > 1) {
-        this.firstDidMountEl.innerHTML = `First did mount: ${metrics.didMount[0]} ms`;
-        this.firstAnimationEl.innerHTML = `First total: ${metrics.onAnimationStart[0]} ms`;
+        this.firstDidMountEl.innerHTML = `First did mount: ${metrics
+          .didMount[0]} ms`;
+        this.firstAnimationEl.innerHTML = `First total: ${metrics
+          .onAnimationStart[0]} ms`;
       }
 
       metrics = {
@@ -86,6 +92,8 @@ class Perfomance extends Component {
     if (height !== '16px') {
       this.noStylesEl.style.display = 'block';
     }
+
+    // this.onAnimationStart();
   }
 
   render() {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { injectSheet } from './jss';
+import classnames from 'classnames';
+import injectSheet from 'react-jss';
 import config from '../../config';
 import colors from '../../utils/colors';
 import Block from './Block';
@@ -7,8 +8,7 @@ import Block from './Block';
 const components = [];
 
 for (let i = 0; i < config.size; i++) {
-  let size = Math.round(i / 10 % 1 * 10);
-
+  let size = Math.round(((i / 10) % 1) * 10);
   const styles = {
     d_block: {
       border: `${size + 2}px solid #000`,
@@ -23,9 +23,15 @@ for (let i = 0; i < config.size; i++) {
     },
   };
 
-  const component = injectSheet(styles)(({ classes, children, ...props }) => {
-    return <Block className={classes.d_block} {...props}>{children}</Block>;
-  });
+  const component = injectSheet(styles)(
+    ({ classes, className, children, ...props }) => {
+      return (
+        <Block className={classnames(className, classes.d_block)} {...props}>
+          {children}
+        </Block>
+      );
+    }
+  );
 
   components.push(component);
 }
