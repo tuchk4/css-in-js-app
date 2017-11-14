@@ -125,14 +125,17 @@ class Page extends React.Component {
     if (!this.state.type) {
       return (
         <div className="info-block">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="repo-link"
-            href="https://github.com/tuchk4/css-in-js-app"
-          >
-            github.com/tuchk4/css-in-js-app
-          </a>
+          <div className="github-link-text">
+            CSS-IN-JS-APP GitHub link:{' '}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              className="repo-link"
+              href="https://github.com/tuchk4/css-in-js-app"
+            >
+              tuchk4/css-in-js-app
+            </a>
+          </div>
           <p>
             NOTE that this is not the real benchmark but it shows the differents
             between CSS in JS libraries and approaches under the same
@@ -221,65 +224,81 @@ class Page extends React.Component {
     return (
       <ScrollView width="100%" flex={1}>
         <Box center className="controlls-space">
-          <button
-            ref={el => (this.renderButton = el)}
-            disabled={!this.state.block || this.state.type}
-            onClick={this.onRenderSameComponents}
-          >
-            Render {config.size} same components
-          </button>
+          <div>
+            <div>
+              <span>Render </span>
+              <span>{config.size}</span>
+              <span className="controlls-item">
+                <button
+                  ref={el => (this.renderButton = el)}
+                  disabled={!this.state.block || this.state.type}
+                  onClick={this.onRenderSameComponents}
+                >
+                  same
+                </button>
+                <a
+                  href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${
+                    this.props.title
+                  }/Block.js`}
+                  target="blank"
+                  className="soruce-link"
+                >
+                  <i className="fa fa-file-code-o fa-1x" aria-hidden="true" />
+                </a>
+              </span>
+              <span> or </span>
+              <span className="controlls-item">
+                <button
+                  disabled={!this.state.block || this.state.type}
+                  onClick={this.onRenderDifferentComponents}
+                >
+                  different
+                </button>
+                <a
+                  href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${
+                    this.props.title
+                  }/DifferentBlocks.js`}
+                  target="blank"
+                  className="soruce-link"
+                >
+                  <i className="fa fa-file-code-o fa-1x" aria-hidden="true" />
+                </a>
+              </span>
+              <span>components. </span>
+              <span className="controlls-item">
+                <span>Render </span>
+                {AUTO_RENDER_COUNT}
+                <span> times</span>
 
-          <a
-            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${
-              this.props.title
-            }/Block.js`}
-            target="blank"
-            className="soruce-link"
-          >
-            <i className="fa fa-file-code-o fa-1x" aria-hidden="true" />
-          </a>
-
-          <button
-            disabled={!this.state.block || this.state.type}
-            onClick={this.onRenderDifferentComponents}
-          >
-            Render {config.size} different components
-          </button>
-
-          <a
-            href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${
-              this.props.title
-            }/DifferentBlocks.js`}
-            target="blank"
-            className="soruce-link"
-          >
-            <i className="fa fa-file-code-o fa-1x" aria-hidden="true" />
-          </a>
-
-          <button
-            disabled={!this.state.block || this.state.type}
-            onClick={this.onAutoRender}
-          >
-            Render {AUTO_RENDER_COUNT} times
-          </button>
-
-          <button
-            ref={el => (this.clearButton = el)}
-            disabled={!this.state.type}
-            onClick={this.onClear}
-          >
-            Clear
-          </button>
+                <button
+                  disabled={!this.state.block || this.state.type}
+                  onClick={this.onAutoRender}
+                >
+                  ok
+                </button>
+                <button
+                  ref={el => (this.clearButton = el)}
+                  disabled={!this.state.type}
+                  onClick={this.onClear}
+                >
+                  Clear
+                </button>
+              </span>
+            </div>
+          </div>
         </Box>
         <Box center className="gh-link-block">
           {this.props.github && (
-            <a
-              target="blank"
-              className="gh-link"
-              href={`https://github.com/${this.props.github}`}
-            >
-              gh: {this.props.github}
-            </a>
+            <div className="github-link-text">
+              Link to the compared:{' '}
+              <a
+                target="blank"
+                className="gh-link"
+                href={`https://github.com/${this.props.github}`}
+              >
+                {this.props.github}
+              </a>
+            </div>
           )}
         </Box>
 

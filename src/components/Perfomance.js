@@ -124,7 +124,7 @@ class Perfomance extends Component {
           ref={el => (this.noStylesEl = el)}
           className="no-styles-after-render"
         >
-          not all styles were injected when all components were already mounted
+          Not all styles were injected when all components were already mounted
         </div>
 
         <div className="first-render time-container">

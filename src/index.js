@@ -1,10 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
 import { HashRouter, Route, Switch } from 'react-router-dom';
 // import Perf from 'react-addons-perf';
-import MetisMenu from 'react-metismenu';
-import Box, { Page } from 'react-layout-components';
 
 import Aphrodite from './scenes/Aphrodite';
 import Glamorous from './scenes/Glamorous';
@@ -25,91 +23,16 @@ import FelaMonolithic from './scenes/FelaMonolithic';
 
 import StyledComponents from './scenes/StyledComponents';
 
-import './menu.css';
+import Menu from './components/Menu';
+
 import './index.css';
 import './probe.css';
 
-// window.Perf = Perf;
-
-const content = [
-  {
-    label: 'Aphrodite',
-    to: '#/aphrodite',
-  },
-  {
-    label: 'Emotion',
-    to: '#/emotion',
-  },
-  {
-    label: 'Fela',
-    content: [
-      {
-        label: 'react-fela',
-        to: '#/react-fela',
-      },
-      {
-        label: 'react-fela monolithic',
-        to: '#/react-fela-monolithic',
-      },
-    ],
-  },
-  {
-    label: 'Glamor',
-    to: '#/glamor',
-  },
-  {
-    label: 'Glamorous',
-    to: '#/glamorous',
-  },
-  {
-    label: 'JSS',
-    content: [
-      {
-        label: 'react-jss',
-        to: '#/react-jss',
-      },
-      {
-        label: 'react-jss with only compose',
-        to: '#/react-jss-wihtout-plugins',
-      },
-      {
-        label: 'styled-jss',
-        to: '#/styled-js',
-      },
-    ],
-  },
-  {
-    label: 'Rockey',
-    to: '#/rockey-react',
-  },
-  {
-    label: 'Styletron',
-    to: '#/styletron',
-  },
-  {
-    label: 'styled-components',
-    to: '#/styled-components',
-  },
-  {
-    label: 'react-inline',
-    to: '#/react-inline',
-  },
-];
-
-ReactDOM.render(
-  <Page>
-    <Box fit>
-      <Box column>
-        <Box center>
-          <a href="https://github.com/tuchk4/css-in-js-app" target="blank">
-            <i className="fa fa-github fa-3x" aria-hidden="true" />
-          </a>
-        </Box>
-        <Box flex={1}>
-          <MetisMenu content={content} activeLinkFromLocation />
-        </Box>
-      </Box>
-      <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
+class App extends Component {
+  render() {
+    return (
+      <div style={{ background: '#f1f1f1' }}>
+        <Menu />
         <HashRouter>
           <Switch>
             <Route exact path="/" component={Rockey} />
@@ -145,7 +68,8 @@ ReactDOM.render(
           </Switch>
         </HashRouter>
       </div>
-    </Box>
-  </Page>,
-  document.getElementById('root')
-);
+    );
+  }
+}
+
+render(<App />, document.getElementById('root'));
