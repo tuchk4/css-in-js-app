@@ -4,7 +4,7 @@ import Box from 'react-layout-components';
 const Menu = ({ props }) => {
   return (
     <nav className="nav-holder">
-      <Box center style={{ marginBottom: '20px' }}>
+      {/* <Box center style={{ marginBottom: '20px' }}>
         <a
           style={{ color: '#ccc' }}
           href="https://github.com/tuchk4/css-in-js-app"
@@ -12,7 +12,7 @@ const Menu = ({ props }) => {
         >
           tuchk4/css-in-js-app
         </a>
-      </Box>
+      </Box> */}
       <button className="header-btn" type="button">
         <span />
       </button>

@@ -2,11 +2,15 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background: rgb(241, 241, 241);
+  /* background: rgb(241, 241, 241); */
+  background: #fbfbfb;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .highlite {
-  background: rgba(168, 240, 170, 0.4);
+  /* background: rgba(168, 240, 170, 0.4);
+  padding: 5px; */
+  font-weight: bold;
 }
 
 .no-styles-after-render {
@@ -21,13 +25,43 @@ body {
 
 .info-block {
   margin: 0px auto 25px;
-  text-align: center;
+  max-width: 640px;
 }
 
-.info-block p {
-  max-width: 900px;
-  font-size: 1.2em;
-  line-height: 1.5em;
+.info-block--part {
+  text-align: center;
+  background: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+.info-block--part {
+  position: relative;
+}
+
+.info-block--part:before,
+.info-block--part:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.07);
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  border-radius: 100px / 10px;
+}
+
+.info-block--part:after {
+  right: 10px;
+  left: auto;
+  transform: skew(8deg) rotate(3deg);
+}
+
+.info-block--part p {
+  /* font-size: 1.2em; */
+  /* line-height: 1.5em; */
   text-align: left;
 }
 
@@ -95,7 +129,7 @@ body {
 
 .controlls-space {
   padding: 15px;
-  background: #f1f1f1;
+  /* background: #f1f1f1; */
 }
 
 .controlls-space button {
@@ -157,7 +191,7 @@ body {
 }
 
 .gh-link-block {
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
 }
 
 .gh-link-block a.gh-link {
@@ -227,7 +261,7 @@ body {
 .nav-holder {
   background: rgb(51, 51, 51);
   padding: 15px 15px 0;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   position: relative;
 }
 
@@ -364,7 +398,7 @@ span.nav-item-link::before {
     overflow: visible;
   }
   .nav-holder {
-    padding: 30px 0 15px;
+    padding: 10px 0 10px 0;
   }
   .nav-item::after {
     display: block;

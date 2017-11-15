@@ -6,10 +6,10 @@
   "dependencies": {
     "aphrodite": "^1.2.5",
     "classnames": "^2.2.5",
-    "emotion": "^8.0.9",
-    "fela": "^6.0.4",
-    "fela-dom": "^6.0.5",
-    "fela-monolithic": "^5.0.12",
+    "emotion": "^8.0.10",
+    "fela": "^6.0.5",
+    "fela-dom": "^6.0.6",
+    "fela-monolithic": "^5.0.13",
     "glamor": "^2.20.40",
     "glamorous": "^4.11.0",
     "jss": "^8.1.0",
@@ -17,11 +17,11 @@
     "jss-preset-default": "^3.0.0",
     "performance-now": "^2.1.0",
     "prejss": "^1.4.0",
-    "react": "^16.0.0",
+    "react": "^16.1.1",
     "react-addons-perf": "^15.4.2",
-    "react-dom": "^16.0.0",
-    "react-emotion": "^8.0.9",
-    "react-fela": "^6.0.5",
+    "react-dom": "^16.1.1",
+    "react-emotion": "^8.0.10",
+    "react-fela": "^6.1.0",
     "react-jss": "^7.2.0",
     "react-layout-components": "^3.0.6",
     "react-metismenu": "^1.4.0-alpha.2",
@@ -31,7 +31,7 @@
     "recompose": "^0.26.0",
     "rockey-react": "0.0.16-alpha.256b890c",
     "styled-components": "^2.2.3",
-    "styled-jss": "^2.1.1",
+    "styled-jss": "^2.1.2",
     "styletron": "^2.5.7",
     "styletron-client": "^2.5.7",
     "styletron-react": "^2.5.10",
@@ -41,8 +41,8 @@
   "devDependencies": {
     "gh-pages": "^1.0.0",
     "husky": "^0.14.3",
-    "lint-staged": "^4.3.0",
-    "prettier": "^1.8.0",
+    "lint-staged": "^5.0.0",
+    "prettier": "^1.8.2",
     "react-scripts": "^1.0.17",
     "uglifyjs-webpack-plugin": "^1.0.1"
   },
@@ -51,13 +51,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "format":
-      "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js'",
+    "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js'",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": ["prettier --trailing-comma es5 --single-quote --write", "git add"]
+    "*.js": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "git add"
+    ]
   }
 }

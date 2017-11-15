@@ -1,3 +1,3 @@
 export default {
-  size: 4000,
+  size: 100,
 };

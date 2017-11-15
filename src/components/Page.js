@@ -2,8 +2,15 @@ import React from 'react';
 import Box, { ScrollView } from 'react-layout-components';
 import config from '../config';
 import Perfomance from './Perfomance';
+import PageLoader from './PageLoader';
+import PageControls from './PageControls';
+import InfoPage from './InfoPage';
+import GithubLibLink from './GithubLibLink';
 
 const AUTO_RENDER_COUNT = 5;
+
+const TYPE_SAME_COMPONENT = 'SAME_COMPONENT';
+const TYPE_DIFFERENT_COMPONENTS = 'DIFFERENT_COMPONENTS';
 
 class Page extends React.Component {
   state = {
@@ -93,92 +100,9 @@ class Page extends React.Component {
     });
   };
 
-  renderControlls() {
-    return (
-      <Box className="controlls-space controlls-inputs">
-        <Box>Component props:</Box>
-        <Box>
-          <input
-            className="Checkbox"
-            id="Primary"
-            type="checkbox"
-            checked={this.state.props.isPrimary}
-            onChange={e => this.onFormChange('isPrimary', e.target.checked)}
-          />
-          <label className="CheckboxLabel" htmlFor="Primary">
-            Primary
-          </label>
-        </Box>
-        <Box>
-          <input
-            type="text"
-            placeholder="Children"
-            value={this.state.props.children}
-            onChange={e => this.onFormChange('children', e.target.value)}
-          />
-        </Box>
-      </Box>
-    );
-  }
-
   renderPage() {
     if (!this.state.type) {
-      return (
-        <div className="info-block">
-          <div className="github-link-text">
-            CSS-IN-JS-APP GitHub link:{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              className="repo-link"
-              href="https://github.com/tuchk4/css-in-js-app"
-            >
-              tuchk4/css-in-js-app
-            </a>
-          </div>
-          <p>
-            NOTE that this is not the real benchmark but it shows the differents
-            between CSS in JS libraries and approaches under the same
-            conditions. In this app the accent was made on dynamic CSS that
-            depends on component props.
-          </p>
-          <p className="highlite">
-            All libraries are used with React. So resulted time also includes
-            React render cycle.
-          </p>
-          <p>Each library has different features and possibilities.</p>
-          <p>
-            For example fela and styletron uses{' '}
-            <a
-              href="https://ryantsao.com/blog/virtual-css-with-styletron"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              atomic css design
-            </a>
-            .
-          </p>
-          <p>
-            styled-components and rockey uses{' '}
-            <a
-              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              template literals
-            </a>{' '}
-            to define CSS.
-          </p>
-          <p className="highlite">
-            If render components again after <i>"CLEAR"</i> and resulted time is
-            lesser this means that library uses cached styles.
-          </p>
-          <p className="highlite">
-            For example try styled-components. Second render is faster in{' '}
-            <b>~25</b> times.
-          </p>
-        </div>
-      );
+      return <InfoPage />;
     }
 
     const Provider = this.props.Provider;
@@ -211,20 +135,14 @@ class Page extends React.Component {
       );
     }
   }
-  renderLoader() {
-    return (
-      <div className="loading">
-        <p>Loading...</p>
-        <p>Assynchronous bundle downloading and its initialization.</p>
-      </div>
-    );
-  }
 
   render() {
     return (
       <ScrollView width="100%" flex={1}>
         <Box center className="controlls-space">
           <div>
+            {this.props.github && <GithubLibLink github={this.props.github} />}
+
             <div>
               <span>Render </span>
               <span>{config.size}</span>
@@ -287,25 +205,19 @@ class Page extends React.Component {
             </div>
           </div>
         </Box>
-        <Box center className="gh-link-block">
-          {this.props.github && (
-            <div className="github-link-text">
-              Link to the compared:{' '}
-              <a
-                target="blank"
-                className="gh-link"
-                href={`https://github.com/${this.props.github}`}
-              >
-                {this.props.github}
-              </a>
-            </div>
-          )}
-        </Box>
 
-        {this.state.type && this.renderControlls()}
+        {this.state.type && (
+          <PageControls
+            onChange={this.onFormChange}
+            values={{
+              text: this.state.props.children,
+              isPrimary: this.state.props.isPrimary,
+            }}
+          />
+        )}
 
         <Box className="example-space">
-          {this.state.block ? this.renderPage() : this.renderLoader()}
+          {this.state.block ? this.renderPage() : <PageLoader />}
         </Box>
       </ScrollView>
     );

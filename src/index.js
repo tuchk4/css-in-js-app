@@ -28,48 +28,35 @@ import Menu from './components/Menu';
 import './index.css';
 import './probe.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div style={{ background: '#f1f1f1' }}>
-        <Menu />
-        <HashRouter>
-          <Switch>
-            <Route exact path="/" component={Rockey} />
-            <Route exact path="/rockey-react" component={Rockey} />
+render(
+  <div>
+    <Menu />
+    <HashRouter>
+      <Switch>
+        <Route exact path="/" component={Rockey} />
+        <Route exact path="/rockey-react" component={Rockey} />
 
-            <Route exact path="/glamor" component={Glamor} />
-            <Route exact path="/glamorous" component={Glamorous} />
-            <Route exact path="/styletron" component={Styletron} />
+        <Route exact path="/glamor" component={Glamor} />
+        <Route exact path="/glamorous" component={Glamorous} />
+        <Route exact path="/styletron" component={Styletron} />
 
-            <Route exact path="/aphrodite" component={Aphrodite} />
-            <Route exact path="/emotion" component={Emotion} />
+        <Route exact path="/aphrodite" component={Aphrodite} />
+        <Route exact path="/emotion" component={Emotion} />
 
-            <Route exact path="/react-jss" component={ReactJss} />
-            <Route
-              exact
-              path="/react-jss-wihtout-plugins"
-              component={ReactJssWithoutPlugins}
-            />
-            <Route exact path="/styled-js" component={StyledJSS} />
+        <Route exact path="/react-jss" component={ReactJss} />
+        <Route
+          exact
+          path="/react-jss-wihtout-plugins"
+          component={ReactJssWithoutPlugins}
+        />
+        <Route exact path="/styled-js" component={StyledJSS} />
 
-            <Route exact path="/react-fela" component={Fela} />
-            <Route
-              exact
-              path="/react-fela-monolithic"
-              component={FelaMonolithic}
-            />
-            <Route
-              exact
-              path="/styled-components"
-              component={StyledComponents}
-            />
-            <Route exact path="/react-inline" component={ReactInline} />
-          </Switch>
-        </HashRouter>
-      </div>
-    );
-  }
-}
-
-render(<App />, document.getElementById('root'));
+        <Route exact path="/react-fela" component={Fela} />
+        <Route exact path="/react-fela-monolithic" component={FelaMonolithic} />
+        <Route exact path="/styled-components" component={StyledComponents} />
+        <Route exact path="/react-inline" component={ReactInline} />
+      </Switch>
+    </HashRouter>
+  </div>,
+  document.getElementById('root')
+);
