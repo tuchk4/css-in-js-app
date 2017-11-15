@@ -58,10 +58,10 @@ class Perfomance extends Component {
 
         const size = metrics.didMount.length;
 
-        this.didMountEl.innerHTML = `${prefix} did mount: ${(
+        this.didMountEl.innerHTML = `${prefix} Did mount: ${(
           didMountverage / size
         ).toFixed(0)} ms`;
-        this.animationEl.innerHTML = `${prefix} total: ${(
+        this.animationEl.innerHTML = `${prefix} Total: ${(
           animationAverage / size
         ).toFixed(0)} ms`;
       }

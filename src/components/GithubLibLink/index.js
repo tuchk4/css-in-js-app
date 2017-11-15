@@ -1,8 +1,10 @@
 import React from 'react';
-import Box from 'react-layout-components';
 
 export default props => (
-  <Box center className="gh-link-block">
+  <div
+    style={{ width: '100%', marginBottom: '15px' }}
+    className="gh-link-block"
+  >
     <div className="github-link-text">
       <a
         target="blank"
@@ -12,5 +14,5 @@ export default props => (
         {props.github}
       </a>
     </div>
-  </Box>
+  </div>
 );

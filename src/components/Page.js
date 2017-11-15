@@ -1,16 +1,11 @@
 import React from 'react';
 import Box, { ScrollView } from 'react-layout-components';
-import config from '../config';
 import Perfomance from './Perfomance';
 import PageLoader from './PageLoader';
-import PageControls from './PageControls';
 import InfoPage from './InfoPage';
-import GithubLibLink from './GithubLibLink';
+import FormComponent from './FormComponent';
 
 const AUTO_RENDER_COUNT = 5;
-
-const TYPE_SAME_COMPONENT = 'SAME_COMPONENT';
-const TYPE_DIFFERENT_COMPONENTS = 'DIFFERENT_COMPONENTS';
 
 class Page extends React.Component {
   state = {
@@ -139,83 +134,19 @@ class Page extends React.Component {
   render() {
     return (
       <ScrollView width="100%" flex={1}>
-        <Box center className="controlls-space">
-          <div>
-            {this.props.github && <GithubLibLink github={this.props.github} />}
-
-            <div>
-              <span>Render </span>
-              <span>{config.size}</span>
-              <span className="controlls-item">
-                <button
-                  ref={el => (this.renderButton = el)}
-                  disabled={!this.state.block || this.state.type}
-                  onClick={this.onRenderSameComponents}
-                >
-                  same
-                </button>
-                <a
-                  href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${
-                    this.props.title
-                  }/Block.js`}
-                  target="blank"
-                  className="soruce-link"
-                >
-                  <i className="fa fa-file-code-o fa-1x" aria-hidden="true" />
-                </a>
-              </span>
-              <span> or </span>
-              <span className="controlls-item">
-                <button
-                  disabled={!this.state.block || this.state.type}
-                  onClick={this.onRenderDifferentComponents}
-                >
-                  different
-                </button>
-                <a
-                  href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${
-                    this.props.title
-                  }/DifferentBlocks.js`}
-                  target="blank"
-                  className="soruce-link"
-                >
-                  <i className="fa fa-file-code-o fa-1x" aria-hidden="true" />
-                </a>
-              </span>
-              <span>components. </span>
-              <span className="controlls-item">
-                <span>Render </span>
-                {AUTO_RENDER_COUNT}
-                <span> times</span>
-
-                <button
-                  disabled={!this.state.block || this.state.type}
-                  onClick={this.onAutoRender}
-                >
-                  ok
-                </button>
-                <button
-                  ref={el => (this.clearButton = el)}
-                  disabled={!this.state.type}
-                  onClick={this.onClear}
-                >
-                  Clear
-                </button>
-              </span>
-            </div>
-          </div>
-        </Box>
-
-        {this.state.type && (
-          <PageControls
-            onChange={this.onFormChange}
-            values={{
-              text: this.state.props.children,
-              isPrimary: this.state.props.isPrimary,
-            }}
-          />
-        )}
-
+        <FormComponent
+          block={this.state.block}
+          type={this.state.type}
+          data={this.state.props}
+          github={this.props.github}
+          onRenderSameComponents={this.onRenderSameComponents}
+          onRenderDifferentComponents={this.onRenderDifferentComponents}
+          onFormChange={this.onFormChange}
+          onClear={this.onClear}
+          title={this.props.title}
+          onAutoRender={this.onAutoRender}
+          onAnimationStart={this.onAnimationStart}
+        />
         <Box className="example-space">
           {this.state.block ? this.renderPage() : <PageLoader />}
         </Box>

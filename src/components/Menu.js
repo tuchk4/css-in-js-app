@@ -1,5 +1,4 @@
 import React from 'react';
-import Box from 'react-layout-components';
 
 const Menu = ({ props }) => {
   return (
