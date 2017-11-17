@@ -28,7 +28,9 @@ const PageControlsRow = ({ children }) => (
   <div className="page-controls-row">{children}</div>
 );
 const BlockHeader = ({ children }) => (
-  <div className="page-controls-block-header">{children}</div>
+  <div className="page-controls-block-header">
+    <span>{children}</span>
+  </div>
 );
 
 const PageControlsActionRow = ({ title, children }) => (
@@ -57,25 +59,26 @@ export default class PageControls extends Component {
         <PageControlsBlock>
           <PageControlsLeftBlock>
             <PageControlsActionRow title={`${config.size} same components`}>
+              <SourceLink lib={'xxx'} type="Block.js" />
               <Button
                 disabled={!block || type}
                 onClick={onRenderSameComponents}
               >
                 Render
               </Button>
-              <SourceLink lib={'xxx'} type="Block.js" />
             </PageControlsActionRow>
 
             <PageControlsActionRow
               title={`${config.size} different components`}
             >
+              <SourceLink lib={'xxx'} type="DifferentBlocks.js" />
+
               <Button
                 disabled={!block || type}
                 onClick={onRenderDifferentComponents}
               >
                 Render
               </Button>
-              <SourceLink lib={'xxx'} type="DifferentBlocks.js" />
             </PageControlsActionRow>
 
             <PageControlsActionRow

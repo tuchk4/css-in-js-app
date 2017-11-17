@@ -1,10 +1,10 @@
 .gh-link-block {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .gh-link-block a.gh-link {
-  font-weight: bold;
-  color: #f53;
-  font-size: 1.1em;
-  font-family: monospace;
+    font-weight: bold;
+    color: #f53;
+    font-size: 1.5em;
+    font-family: monospace;
 }

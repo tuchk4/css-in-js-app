@@ -1,26 +1,26 @@
 .button {
-  border: none;
-  font-size: 0.9em;
-  margin: 0 10px;
-  background: rgb(76, 175, 80);
-  text-transform: uppercase;
-  cursor: pointer;
-  outline: none;
-  padding: 5px 10px;
-  min-width: 100px;
-  color: #fff;
-  height: 31px;
-  box-sizing: border-box;
+    border: none;
+    font-size: 0.9em;
+    /* margin: 0 10px; */
+    background: rgb(76, 175, 80);
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    padding: 5px 10px;
+    min-width: 100px;
+    color: #fff;
+    height: 31px;
+    box-sizing: border-box;
 }
 
 .button:hover {
-  background: rgba(76, 175, 80, 0.9);
+    background: rgba(76, 175, 80, 0.9);
 }
 
 .button:disabled,
 .button:disabled:hover {
-  background: #f1f1f1;
-  cursor: not-allowed;
-  color: #505050;
-  border: 1px solid #505050;
+    background: #f1f1f1;
+    cursor: not-allowed;
+    color: #505050;
+    border: 1px solid #505050;
 }

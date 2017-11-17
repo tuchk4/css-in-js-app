@@ -1,32 +1,54 @@
 .page-controls-block {
-  margin-bottom: 15px;
-  border: 1px dashed rgb(206, 206, 206);
-  margin: 0 auto;
-  padding: 10px;
-  background: #fff;
-  border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px dashed rgb(206, 206, 206);
+    margin: 0 auto;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
 }
 
 .page-controls-left-block {
+    width: 60%;
+    padding-right: 20px;
 }
 
 .page-controls-right-block {
+    width: 40%;
 }
 
 .page-controls-block-header {
-  margin-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    min-height: 31px;
+    justify-content: center;
 }
 
 .controlls-space.controlls-inputs {
-  justify-content: center;
-  align-items: baseline;
+    justify-content: center;
+    align-items: baseline;
 }
 
 .page-controls-row {
-  margin: 0 auto 15px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 31px;
+}
+
+.page-controls-row-action {
+    display: flex;
+    align-items: center;
+}
+
+.page-controls-row-action label {
+    min-width: 77px;
+    text-align: right;
+    margin-right: 5px;
 }
 
 .page-controls-row-action-text {
-  display: inline-block;
-  width: 275px;
+    display: inline-block;
+    width: 261px;
 }
