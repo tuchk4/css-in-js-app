@@ -1,0 +1,32 @@
+.page-controls-block {
+  margin-bottom: 15px;
+  border: 1px dashed rgb(206, 206, 206);
+  margin: 0 auto;
+  padding: 10px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.page-controls-left-block {
+}
+
+.page-controls-right-block {
+}
+
+.page-controls-block-header {
+  margin-bottom: 10px;
+}
+
+.controlls-space.controlls-inputs {
+  justify-content: center;
+  align-items: baseline;
+}
+
+.page-controls-row {
+  margin: 0 auto 15px;
+}
+
+.page-controls-row-action-text {
+  display: inline-block;
+  width: 275px;
+}

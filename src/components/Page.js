@@ -1,9 +1,10 @@
 import React from 'react';
-import Box, { ScrollView } from 'react-layout-components';
+import Box, { ScrollView, Center } from 'react-layout-components';
 import Perfomance from './Perfomance';
 import PageLoader from './PageLoader';
 import InfoPage from './InfoPage';
-import FormComponent from './FormComponent';
+import PageControls from './PageControls';
+import GithubLibLink from './GithubLibLink';
 
 const AUTO_RENDER_COUNT = 5;
 
@@ -134,11 +135,16 @@ class Page extends React.Component {
   render() {
     return (
       <ScrollView width="100%" flex={1}>
-        <FormComponent
+        {this.props.github && (
+          <Center>
+            <GithubLibLink github={this.props.github} />
+          </Center>
+        )}
+
+        <PageControls
           block={this.state.block}
           type={this.state.type}
           data={this.state.props}
-          github={this.props.github}
           onRenderSameComponents={this.onRenderSameComponents}
           onRenderDifferentComponents={this.onRenderDifferentComponents}
           onFormChange={this.onFormChange}

@@ -1,0 +1,48 @@
+.highlite {
+  /* background: rgba(168, 240, 170, 0.4); */
+}
+
+.github-link-text {
+  font-size: 20px;
+  text-align: center;
+}
+
+.info-block {
+  margin: 0px auto 25px;
+  max-width: 640px;
+}
+
+.info-block--part {
+  text-align: center;
+  background: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+.info-block--part {
+  position: relative;
+}
+
+.info-block--part:before,
+.info-block--part:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.07);
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  border-radius: 100px / 10px;
+}
+
+.info-block--part:after {
+  right: 10px;
+  left: auto;
+  transform: skew(8deg) rotate(3deg);
+}
+
+.info-block--part p {
+  text-align: left;
+}

@@ -1,0 +1,13 @@
+.text-field {
+  outline: none;
+  border: 1px solid #505050;
+  border-radius: 3px;
+  font-size: 1em;
+  font-family: 'Roboto';
+  color: #505050;
+  padding: 5px;
+  margin: 0 5px;
+  background: none;
+  height: 31px;
+  box-sizing: border-box;
+}

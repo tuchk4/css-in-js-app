@@ -1,0 +1,42 @@
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.page-controlsinput:disabled,
+.checkbox:disabled + label {
+  cursor: not-allowed;
+}
+
+.checkbox,
+.checkbox + label {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.checkbox + label {
+  position: relative;
+  outline: none;
+  user-select: none;
+}
+
+.checkbox + label::before {
+  content: '';
+  background: #fff;
+  border: 3px solid #fff;
+  display: inline-block;
+  vertical-align: middle;
+  width: 23px;
+  height: 23px;
+  padding: 2px;
+  margin-right: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  right: -45px;
+}
+
+.checkbox:checked + label::before {
+  background: rgb(76, 175, 80);
+}

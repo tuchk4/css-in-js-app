@@ -1,4 +1,5 @@
 import React from 'react';
+import './InfoPage.css';
 
 export default () => (
   <div className="info-block">

@@ -1,0 +1,44 @@
+.empty-time-container {
+  display: none !important;
+}
+
+.time-container + .time-container {
+  margin-top: 10px;
+}
+
+.time-container {
+  display: flex;
+  /*height: 50px;*/
+  justify-content: center;
+}
+
+.time {
+  font-size: 1.5em;
+  color: #551a8b;
+  margin-right: 25px;
+}
+
+.render-time {
+  font-size: 1.5em;
+  color: #f53;
+}
+
+.time-container.first-render .time {
+  font-weight: bold;
+  color: #300656;
+}
+
+.time-container.first-render .render-time {
+  font-weight: bold;
+  color: #b51d00;
+}
+
+.no-styles-after-render {
+  display: none;
+  text-align: center;
+  padding: 10px 0;
+  color: red;
+  background: rgba(255, 0, 0, 0.1);
+  font-weight: bold;
+  font-size: 1.3em;
+}

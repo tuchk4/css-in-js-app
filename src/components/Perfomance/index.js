@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import now from 'performance-now';
-import config from '../config';
 import ReactTooltip from 'react-tooltip';
+import config from '../../config';
+
+import './Perfomance.css';
 
 let metrics = {
   onAnimationStart: [],

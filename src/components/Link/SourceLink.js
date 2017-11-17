@@ -1,15 +1,15 @@
 import React from 'react';
+import Link from './';
 
-export default ({ title, item }) => {
+export default ({ lib, type }) => {
   return (
-    <a
+    <Link
       href={`https://github.com/tuchk4/css-in-js-app/blob/master/src/scenes/${
-        title
-      }/${item}`}
+        lib
+      }/${type}`}
       target="blank"
-      className="soruce-link"
     >
       <i className="fa fa-file-code-o fa-1x" aria-hidden="true" />
-    </a>
+    </Link>
   );
 };
