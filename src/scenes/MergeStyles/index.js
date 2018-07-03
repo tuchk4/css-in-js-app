@@ -5,7 +5,7 @@ export default () => {
   return (
     <Page
       title="MergeStyles"
-      github="OfficeDev/office-ui-fabric-react/packages/merge-styles"
+      github="OfficeDev/office-ui-fabric-react/master/packages/merge-styles"
       load={onLoad => {
         require.ensure(['./Block', './DifferentBlocks', './Probe'], () => {
           const block = require('./Block').default;
