@@ -75,6 +75,11 @@ const Menu = ({ props }) => {
           </ul>
         </li>
         <li className="nav-item">
+          <a className="nav-item-link" href="#/merge-styles">
+            MergeStyles
+          </a>
+        </li>
+        <li className="nav-item">
           <a className="nav-item-link" href="#/rockey-react">
             Rockey
           </a>

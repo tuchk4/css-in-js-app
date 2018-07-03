@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@uifabric/merge-styles": "^6.2.1",
     "aphrodite": "^1.2.5",
     "classnames": "^2.2.5",
     "emotion": "^8.0.10",

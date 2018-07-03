@@ -8,7 +8,7 @@ import Aphrodite from './scenes/Aphrodite';
 import Glamorous from './scenes/Glamorous';
 import Styletron from './scenes/Styletron';
 import Emotion from './scenes/Emotion';
-
+import MergeStyles from './scenes/MergeStyles';
 import ReactJss from './scenes/ReactJss';
 import ReactJssWithoutPlugins from './scenes/ReactJssWithoutPlugins';
 import StyledJSS from './scenes/StyledJss';
@@ -42,7 +42,7 @@ render(
 
         <Route exact path="/aphrodite" component={Aphrodite} />
         <Route exact path="/emotion" component={Emotion} />
-
+        <Route exact path="/merge-styles" component={MergeStyles} />
         <Route exact path="/react-jss" component={ReactJss} />
         <Route
           exact

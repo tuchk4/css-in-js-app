@@ -66,10 +66,14 @@ class Page extends React.Component {
     if (this.state.auto) {
       if (this.state.counter !== AUTO_RENDER_COUNT) {
         setTimeout(() => {
-          this.clearButton.click();
+          if (this.clearButton) {
+            this.clearButton.click();
+          }
 
           setTimeout(() => {
-            this.renderButton.click();
+            if (this.renderButton) {
+              this.renderButton.click();
+            }
           }, 10);
         }, 10);
       } else {
